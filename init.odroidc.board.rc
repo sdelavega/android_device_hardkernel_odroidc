@@ -15,11 +15,11 @@ on aml-firstboot-init
 
 on fs
     setprop ro.crypto.umount_sd false
-    mount ext4 /dev/block/system /system wait ro noatime nodiratime noauto_da_alloc
-    e2fsck -y /dev/block/data
-    mount ext4 /dev/block/data /data noatime nodiratime norelatime nosuid nodev noauto_da_alloc
-    e2fsck -y /dev/block/cache
-    mount ext4 /dev/block/cache /cache noatime nodiratime norelatime nosuid nodev noauto_da_alloc
+    mount ext4 /dev/block/mmcblk0p2 /system wait ro noatime nodiratime noauto_da_alloc
+    e2fsck -y /dev/block/mmcblk0p2
+    mount ext4 /dev/block/mmcblk0p3 /data noatime nodiratime norelatime nosuid nodev noauto_da_alloc
+    e2fsck -y /dev/block/mmcblk0p3
+    mount ext4 /dev/block/mmcblk0p4 /cache noatime nodiratime norelatime nosuid nodev noauto_da_alloc
     write /sys/class/aml_keys/aml_keys/version auto3
 
 on post-fs-data
