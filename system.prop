@@ -111,8 +111,6 @@ gadget.nand.force_sync=true
 # Camera exif
 ro.camera.exif.make=M8b
 ro.camera.exif.model=odroidc
-#hide status bar
-persist.sys.hideStatusBar=true
 
 #support media poll uevent,can use sd cardread on usb port
 has.media.poll=true
