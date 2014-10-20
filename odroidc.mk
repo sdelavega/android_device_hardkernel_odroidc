@@ -157,18 +157,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 PRODUCT_PACKAGES += \
-	FileBrowser \
-	AppInstaller \
 	VideoPlayer \
 	SubTitle \
 	RemoteIME \
 	remotecfg \
-	DLNA \
-	OTAUpgrade \
 	RC_Server \
-	AmlMiracast \
-	MediaBoxLauncher \
-	MboxSetting	\
 	Discovery.apk \
 	IpRemote.apk \
 	PromptUser \
@@ -178,20 +171,6 @@ PRODUCT_PACKAGES += \
 	alsalib-cardsaliasesconf \
 	libamstreaming \
 	bootplayer
-
-BUILD_WITH_PPPOE := true
-
-ifeq ($(BUILD_WITH_PPPOE),true)
-PRODUCT_PACKAGES += \
-    PPPoE \
-    libpppoejni \
-    pppoe_wrapper \
-    pppoe \
-    amlogic.pppoe \
-    amlogic.pppoe.xml
-PRODUCT_PROPERTY_OVERRIDES += \
-    ro.platform.has.pppoe=true
-endif
 
 ifeq ($(BUILD_WITH_PLAYREADY_DRM), true)
 #playready license process in smoothstreaming(default)
