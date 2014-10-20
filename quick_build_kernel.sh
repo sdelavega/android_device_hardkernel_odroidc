@@ -12,7 +12,7 @@
 #{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{
 PROJECT_NAME=odroidc
 PROJECT_DT=meson8b_odroidc
-KERNEL_DEFCONFIG=meson8b_defconfig
+KERNEL_DEFCONFIG=odroidc_defconfig
 KERNET_ROOTDIR=kernel
 PREFIX_CROSS_COMPILE=arm-linux-gnueabihf-
 #}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
