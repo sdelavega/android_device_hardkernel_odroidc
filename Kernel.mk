@@ -30,7 +30,6 @@ mkdir -p $(TARGET_OUT)/lib
 
 #cp $(UMP_OUT)/ump.ko $(PRODUCT_OUT)/root/boot/
 cp $(MALI_OUT)/mali.ko $(PRODUCT_OUT)/root/boot/
-#cp $(WIFI_OUT)/broadcom/drivers/ap6xxx/broadcm_40181/dhd.ko $(TARGET_OUT)/lib/
 cp $(KERNET_ROOTDIR)/arch/arm/boot/dts/amlogic/$(KERNEL_DEVICETREE).dtd $(PRODUCT_OUT)/meson_target.dtd
 cp $(KERNEL_OUT)/arch/arm/boot/meson.dtd $(PRODUCT_OUT)/meson.dtd
 cp $(KERNEL_OUT)/arch/arm/boot/dts/amlogic/$(KERNEL_DEVICETREE).dtb $(PRODUCT_OUT)/meson.dtb
