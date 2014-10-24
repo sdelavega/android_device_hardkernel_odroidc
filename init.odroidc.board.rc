@@ -1,6 +1,5 @@
 on early-init
     write /sys/class/boot_monitor/boot_timer 1
-    #insmod /boot/aml_nftl_dev.ko
     insmod /boot/otz_client.ko
 
 on init

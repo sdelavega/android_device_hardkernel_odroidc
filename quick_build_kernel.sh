@@ -83,9 +83,7 @@ else
 fi
 
 #{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{
-  cp $KERNEL_OUT/../hardware/wifi/broadcom/drivers/ap6xxx/broadcm_40181/dhd.ko $PRODUCT_OUT/system/lib/
-cp $(KERNEL_OUT)/../hardware/amlogic/nand/amlnf/aml_nftl_dev.ko $(PRODUCT_OUT)/root/boot/
-cp $(KERNEL_OUT)/../hardware/amlogic/pmu/aml_pmu_dev.ko $(PRODUCT_OUT)/system/lib/
+#  cp $KERNEL_OUT/../hardware/wifi/broadcom/drivers/ap6xxx/broadcm_40181/dhd.ko $PRODUCT_OUT/system/lib/
 #}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 
 make -C $KERNET_ROOTDIR O=../$KERNEL_OUT ARCH=arm CROSS_COMPILE=$PREFIX_CROSS_COMPILE uImage -j12
@@ -120,10 +118,6 @@ if [ ! -d $KERNEL_OUT ]; then
         echo "$KERNEL_OUT no found! Build it..."
         mkdir $KERNEL_OUT
 fi
-#{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{{
-cp $(KERNEL_OUT)/../hardware/amlogic/nand/amlnf/aml_nftl_dev.ko $(PRODUCT_OUT)/root/boot/
-cp $(KERNEL_OUT)/../hardware/amlogic/pmu/aml_pmu_dev.ko $(PRODUCT_OUT)/system/lib/
-#}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}}
 
 if [ ! -f $KERNEL_CONFIG ]; then
         make -C $KERNET_ROOTDIR O=../$KERNEL_OUT ARCH=arm CROSS_COMPILE=$PREFIX_CROSS_COMPILE $KERNEL_DEFCONFIG -j4

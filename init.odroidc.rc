@@ -4,7 +4,6 @@ import /init.${ro.hardware}.board.rc
 on early-init
     loglevel 7
     mount debugfs debugfs /sys/kernel/debug
-    insmod /boot/aml_nftl_dev.ko
     mount usbfs none /proc/bus/usb
 
     #symlink /initlogo.720p.rle /initlogo.rle
