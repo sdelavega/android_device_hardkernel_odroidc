@@ -82,37 +82,6 @@ BOARD_USES_USB_PM := true
 
 #########################################################################
 #
-#                                                WiFi
-#
-#########################################################################
-
-WIFI_MODULE := AP6335
-include device/hardkernel/common/wifi.mk
-
-# Change this to match target country
-# 11 North America; 14 Japan; 13 rest of world
-PRODUCT_DEFAULT_WIFI_CHANNELS := 11
-
-ifeq ($(WIFI_MODULE), AP6335)
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/wifi/config.txt:system/etc/wifi/config.txt
-endif
-
-#########################################################################
-#
-#                                                Bluetooth
-#
-#########################################################################
-
-BOARD_HAVE_BLUETOOTH := true
-BLUETOOTH_MODULE := AP6335
-include device/hardkernel/common/bluetooth.mk
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.bluetooth.xml:system/etc/permissions/android.hardware.bluetooth.xml
-
-#########################################################################
-#
 #                                                GPS
 #
 #########################################################################
