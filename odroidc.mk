@@ -82,6 +82,51 @@ BOARD_USES_USB_PM := true
 
 #########################################################################
 #
+#                                                WiFi
+#
+#########################################################################
+WIFI_DRIVER             := rtl8192cu
+BOARD_WIFI_VENDOR       := realtek
+BOARD_WLAN_DEVICE       := rtl8192cu
+WIFI_DRIVER_MODULE_PATH := /system/lib/modules/8192cu.ko
+WIFI_DRIVER_MODULE_NAME := 8192cu
+WIFI_DRIVER_FW_PATH_STA := none
+WIFI_DRIVER_MODULE_ARG  := "ifname=wlan0 if2name=p2p0"
+
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+CONFIG_DRIVER_WEXT               := y
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_nl80211
+BOARD_HOSTAPD_DRIVER             := NL80211
+BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_nl80211
+
+WIFI_FIRMWARE_LOADER      := ""
+WIFI_DRIVER_FW_PATH_STA   := ""
+WIFI_DRIVER_FW_PATH_AP    := ""
+WIFI_DRIVER_FW_PATH_P2P   := ""
+WIFI_DRIVER_FW_PATH_PARAM := ""
+
+PRODUCT_COPY_FILES += \
+        $(TARGET_PRODUCT_DIR)/drivers/8192cu.ko:system/lib/modules/8192cu.ko
+
+PRODUCT_PROPERTY_OVERRIDES += \
+        wifi.interface=wlan0 \
+
+# Change this to match target country
+# 11 North America; 14 Japan; 13 rest of world
+PRODUCT_DEFAULT_WIFI_CHANNELS := 13
+
+PRODUCT_COPY_FILES += \
+        frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+        frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
+
+PRODUCT_PACKAGES += \
+        wpa_supplicant.conf \
+        wpa_supplicant_overlay.conf \
+        p2p_supplicant_overlay.conf
+
+#########################################################################
+#
 #                                                GPS
 #
 #########################################################################
