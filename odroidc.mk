@@ -106,9 +106,6 @@ WIFI_DRIVER_FW_PATH_AP    := ""
 WIFI_DRIVER_FW_PATH_P2P   := ""
 WIFI_DRIVER_FW_PATH_PARAM := ""
 
-PRODUCT_COPY_FILES += \
-        $(TARGET_PRODUCT_DIR)/drivers/8192cu.ko:system/lib/modules/8192cu.ko
-
 PRODUCT_PROPERTY_OVERRIDES += \
         wifi.interface=wlan0 \
 
