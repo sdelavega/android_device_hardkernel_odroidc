@@ -20,6 +20,7 @@ TARGET_AMLOGIC_INT_RECOVERY_KERNEL := $(KERNEL_OUT)/arch/arm/boot/uImage_recover
 MALI_OUT := $(TARGET_OUT_INTERMEDIATES)/hardware/arm/gpu/mali
 UMP_OUT  := $(TARGET_OUT_INTERMEDIATES)/hardware/arm/gpu/ump
 WIFI_OUT  := $(TARGET_OUT_INTERMEDIATES)/hardware/wifi
+MODULES_OUT_DIR := $(TARGET_PRODUCT_DIR)/drivers
 
 PREFIX_CROSS_COMPILE=arm-linux-gnueabihf-
 #arm-none-linux-gnueabi-
@@ -27,12 +28,14 @@ PREFIX_CROSS_COMPILE=arm-linux-gnueabihf-
 define cp-modules
 mkdir -p $(PRODUCT_OUT)/root/boot
 mkdir -p $(TARGET_OUT)/lib
+mkdir -p $(MODULES_OUT_DIR)
 
 #cp $(UMP_OUT)/ump.ko $(PRODUCT_OUT)/root/boot/
 cp $(MALI_OUT)/mali.ko $(PRODUCT_OUT)/root/boot/
 cp $(KERNET_ROOTDIR)/arch/arm/boot/dts/amlogic/$(KERNEL_DEVICETREE).dtd $(PRODUCT_OUT)/meson_target.dtd
 cp $(KERNEL_OUT)/arch/arm/boot/meson.dtd $(PRODUCT_OUT)/meson.dtd
 cp $(KERNEL_OUT)/arch/arm/boot/dts/amlogic/$(KERNEL_DEVICETREE).dtb $(PRODUCT_OUT)/meson.dtb
+find $(KERNEL_OUT) -name "*.ko" | xargs -i cp {} $(MODULES_OUT_DIR)
 endef
 
 $(KERNEL_OUT):
