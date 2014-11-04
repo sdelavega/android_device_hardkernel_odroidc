@@ -276,4 +276,5 @@ PRODUCT_COPY_FILES += \
   $(LOCAL_PATH)/mbox.mp4:system/etc/bootvideo
 
 # inherit from the non-open-source side, if present
+$(call inherit-product-if-exists, device/hardkernel/proprietary/proprietary.mk)
 $(call inherit-product-if-exists, vendor/hardkernel/odroidc/device-vendor.mk)
