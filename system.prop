@@ -212,8 +212,6 @@ media.libplayer.modules=vhls_mod,dash_mod,curl_mod
 libplayer.netts.recalcpts=1
 libplayer.livets.softdemux=1
 
-#Time Zone
-persist.sys.timezone=Asia/Shanghai
 ro.osd2.size=64x64
 
 #new feature 81282
