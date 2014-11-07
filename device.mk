@@ -111,7 +111,7 @@ PRODUCT_COPY_FILES += \
 
 #possible options:1 mass_storage 2 mtp
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mtp
+	persist.sys.usb.config=mass_storage
 
 # USB
 PRODUCT_COPY_FILES += \
