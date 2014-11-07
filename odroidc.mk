@@ -205,7 +205,6 @@ PRODUCT_PACKAGES += \
         Utility \
 	VideoPlayer \
 	SubTitle \
-	RemoteIME \
 	remotecfg \
 	RC_Server \
 	Discovery.apk \
