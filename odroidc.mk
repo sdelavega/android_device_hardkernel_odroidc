@@ -22,7 +22,7 @@
 
 # Inherit from those products. Most specific first.
 $(call inherit-product-if-exists, vendor/google/products/gms.mk)
-$(call inherit-product, device/hardkernel/common/mbx_amlogic.mk)
+$(call inherit-product, device/hardkernel/odroidc/device.mk)
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/full_base.mk)
 
 # Replace definitions used by tablet in mid_amlogic.mk above
