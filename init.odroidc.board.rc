@@ -9,14 +9,10 @@ on aml-firstboot-init
     #display_logo /firstinitlogo.rle
 
     #format data and cache patrition if not exist
-    confirm_formated ext4 /dev/block/data /data
-    confirm_formated ext4 /dev/block/cache /cache
 
 on fs
+    mount_all /fstab.odroidc
     setprop ro.crypto.umount_sd false
-    mount ext4 /dev/block/mmcblk0p2 /system wait ro noatime nodiratime noauto_da_alloc
-    mount ext4 /dev/block/mmcblk0p3 /data noatime nodiratime norelatime nosuid nodev noauto_da_alloc
-    mount ext4 /dev/block/mmcblk0p4 /cache noatime nodiratime norelatime nosuid nodev noauto_da_alloc
     write /sys/class/aml_keys/aml_keys/version auto3
 
 on post-fs-data

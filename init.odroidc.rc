@@ -13,18 +13,29 @@ on early-init
 on init
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
+    mkdir /storage/sdcard0/.android_secure 0775 system system
 
-    export EXTERNAL_STORAGE /storage/emulated/legacy
-    export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
-    export EMULATED_STORAGE_TARGET /storage/emulated
+    mkdir /mnt/media_rw/sdcard0 0700 media_rw media_rw
+    mkdir /storage/sdcard0 0700 root root
+
+    mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
+    mkdir /storage/sdcard1 0700 root root
+
+    mkdir /mnt/media_rw/usbstorage 0700 media_rw media_rw
+    mkdir /storage/usbstorage 0700 root root
+
+    export EXTERNAL_STORAGE /storage/sdcard0
+    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbstorage
 
     # Support legacy paths
-    symlink /storage/emulated/legacy /sdcard
-    symlink /storage/emulated/legacy /mnt/sdcard
-    symlink /storage/emulated/legacy /storage/sdcard0
-    symlink /mnt/shell/emulated/0 /storage/emulated/legacy
+    symlink /storage/sdcard0 /sdcard
+    symlink /storage/sdcard0 /mnt/sdcard
+    symlink /storage/sdcard1 /extSdCard
+    symlink /storage/sdcard1 /mnt/extSdCard
+    symlink /storage/sdcard1 /external_sd
+    symlink /storage/usbstorage /usbstorage
+    symlink /storage/usbstorage /mnt/usbstorage
 
-    mkdir /storage/external_storage 0666 system system
     mount tmpfs tmpfs /storage/external_storage rec mode=0775,uid=1000,gid=1023
 
 on post-fs-data
@@ -248,7 +259,7 @@ on boot
     chown system system /sys/class/mpgpu/mpgpucmd
     chmod 664 /sys/class/mpgpu/mpgpucmd
 
-    start sdcard
+#start sdcard
 
 service display /system/bin/set_display_mode.sh 
     class core
@@ -328,7 +339,13 @@ service usbpm /system/bin/usbtestpm
     disabled
 
 # virtual sdcard daemon running as media_rw (1023)
-service sdcard /system/bin/sdcard -u 1023 -g 1023 -l /data/media /mnt/shell/emulated
+service sdcard0 /system/bin/sdcard -u 1023 -g 1023 -w 1024 -d /mnt/media_rw/sdcard0 /storage/sdcard0
+    class late_start
+
+service sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1024 -d /mnt/media_rw/sdcard1 /storage/sdcard1
+    class late_start
+
+service usbstorage /system/bin/sdcard -u 1023 -g 1023 -w 1024 -d /mnt/media_rw/usbstorage /storage/usbstorage
     class late_start
 
 on property:hw.nophone=true

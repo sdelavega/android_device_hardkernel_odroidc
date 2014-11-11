@@ -37,11 +37,13 @@
                  android:storageDescription="@string/storage_internal"
                  android:primary="true"
                  android:emulated="false"
-                 android:allowMassStorage="true"
-                 android:removable="false" />
-    <storage android:mountPoint="/storage/external_storage/sdcard1"
+                 android:allowMassStorage="true" />
+    <storage android:mountPoint="/storage/sdcard1"
                  android:storageDescription="@string/storage_sd_card"
                  android:primary="false"
-                 android:allowMassStorage="true"
+                 android:removable="true" />
+    <storage android:mountPoint="/storage/usbstorage"
+                 android:storageDescription="@string/storage_usb"
+                 android:primary="false"
                  android:removable="true" />
 </StorageList>
