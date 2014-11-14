@@ -81,9 +81,6 @@ sys.fb.bits=32
 # Disable GPS
 gps.enable=false
 
-#keep landscape in launcher
-sys.keeplauncher.landcape=true
-
 #Enable player buildin
 media.amsuperplayer.enable=true
 media.amplayer.enable-acodecs=ac3,eac3,rm,flac,dts
