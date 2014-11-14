@@ -281,11 +281,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/config:system/etc/config  \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
-# bootanimation and bootvideo
-PRODUCT_COPY_FILES += \
-  $(LOCAL_PATH)/bootanimation.zip:system/media/bootanimation.zip \
-  $(LOCAL_PATH)/mbox.mp4:system/etc/bootvideo
-
 # inherit from the non-open-source side, if present
 $(call inherit-product-if-exists, device/hardkernel/proprietary/proprietary.mk)
 $(call inherit-product-if-exists, vendor/hardkernel/odroidc/device-vendor.mk)

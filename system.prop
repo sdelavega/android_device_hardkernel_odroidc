@@ -217,9 +217,6 @@ ro.osd2.size=64x64
 #new feature 81282
 ro.alarm.align=true
 
-#add for video boot, 1 means use video boot, others not .
-service.bootvideo=0
-
 #new feature 81297
 ro.permissions.settings=true
 
