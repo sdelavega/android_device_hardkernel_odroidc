@@ -371,3 +371,10 @@ service imageserver /system/bin/imageserver
     class main
     user root
     group system
+
+# su daemon
+service su_daemon /system/xbin/su --daemon
+    class core
+    user root
+    group root
+    oneshot
