@@ -23,6 +23,9 @@ hwui.render_dirty_regions=false
 #force GPU rendering
 persist.sys.ui.hw=true
 
+#hdmi rotation
+persist.demo.hdmirotation=landscape
+
 # Configure features
 hw.nopm=true
 hw.nobattery=true
