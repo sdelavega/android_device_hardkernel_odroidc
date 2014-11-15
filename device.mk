@@ -106,6 +106,10 @@ PRODUCT_PACKAGES += \
     usbtestpm \
     usbpower
 
+PRODUCT_PACKAGES += \
+    Superuser \
+    su
+
 PRODUCT_COPY_FILES += \
     device/amlogic/common/tools/AmlHostsTool:system/bin/AmlHostsTool 
 
