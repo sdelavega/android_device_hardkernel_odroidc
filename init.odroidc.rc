@@ -362,11 +362,6 @@ service dig /system/bin/dig
     class core
     oneshot
 
-service qbd /system/bin/qbd
-    class core
-    disabled
-    oneshot
-
 service imageserver /system/bin/imageserver
     class main
     user root
