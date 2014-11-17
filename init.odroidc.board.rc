@@ -39,7 +39,7 @@ on boot
 #add for mali scaling mode set
     chown system /sys/module/mali/parameters/scaling_mode
 
-on property:svc.bootanim=running
+on property:init.svc.bootanim=running
     write /sys/class/graphics/fb1/free_scale 0
     write sys/class/graphics/fb0/free_scale 0x10001
     write /sys/class/graphics/fb0/blank 0
