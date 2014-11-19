@@ -8,6 +8,11 @@
 /dev/block/mmcblk0p3    /data   ext4    noatime,nosuid,nodev,noauto_da_alloc wait,encryptable=/cache/metadata
 /dev/block/mmcblk0p4    /cache  ext4    noatime,nosuid,nodev,                wait
 
-/devices/platform/aml_sdio.0/mmc_host/emmc  auto    auto    defaults    voldmanaged=sdcard0:1,noemulatedsd
-/devices/platform/aml_sdhc.0/mmc_host/sd    auto    auto    defaults    voldmanaged=sdcard1:auto
 /devices/lm1/usb1                           auto    auto    defaults    voldmanaged=usbstorage:auto
+
+# When booted by eMMC
+/devices/platform/aml_sdhc.0/mmc_host/emmc  auto    auto    defaults    voldmanaged=sdcard0:1,noemulatedsd
+/devices/platform/aml_sdio.0/mmc_host/sd    auto    auto    defaults    voldmanaged=sdcard1:auto
+# When booted by SD card
+/devices/platform/aml_sdhc.0/mmc_host/sd    auto    auto    defaults    voldmanaged=sdcard0:1,noemulatedsd
+/devices/platform/aml_sdio.0/mmc_host/emmc  auto    auto    defaults    voldmanaged=sdcard1:auto
