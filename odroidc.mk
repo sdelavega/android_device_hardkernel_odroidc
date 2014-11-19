@@ -145,8 +145,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/init.odroidc.rc:root/init.odroidc.rc \
 	$(LOCAL_PATH)/init.odroidc.usb.rc:root/init.odroidc.usb.rc \
 	$(LOCAL_PATH)/ueventd.odroidc.rc:root/ueventd.odroidc.rc \
-	$(LOCAL_PATH)/fstab.odroidc:root/fstab.odroidc \
-	$(LOCAL_PATH)/fstab.odroidc.sdboot:root/fstab.odroidc.sdboot
+	$(LOCAL_PATH)/fstab.odroidc:root/fstab.odroidc
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/init.odroidc.board.rc:root/init.odroidc.board.rc \
