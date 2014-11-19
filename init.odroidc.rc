@@ -358,10 +358,6 @@ on property:hw.nophone=false
 on property:dev.bootcomplete=1
     start usbpm
 
-service dig /system/bin/dig
-    class core
-    oneshot
-
 service imageserver /system/bin/imageserver
     class main
     user root
