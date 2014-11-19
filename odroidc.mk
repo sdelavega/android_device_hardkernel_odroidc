@@ -202,6 +202,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 PRODUCT_PACKAGES += \
         OdroidUpdater \
+        Utility \
 	VideoPlayer \
 	SubTitle \
 	RemoteIME \
