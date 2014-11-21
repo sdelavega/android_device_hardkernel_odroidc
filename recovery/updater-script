@@ -1,0 +1,12 @@
+#assert(getprop("ro.build.product" == "odroidc"));
+
+set_progress(0.1);
+ui_print("Hardkernel's ODROID-C Android Update is started...");
+set_progress(0.2);
+package_extract_file("system.img", "system", "/dev/block/mmcblk0p2");
+set_progress(0.6);
+package_extract_file("userdata.img", "userdata", "/dev/block/mmcblk0p3");
+set_progress(0.8);
+package_extract_file("cache.img", "cache", "/dev/block/mmcblk0p4");
+set_progress(1.0);
+ui_print("Update is completed. Have fun with ODROID-C!");

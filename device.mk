@@ -110,6 +110,10 @@ PRODUCT_PACKAGES += \
     Superuser \
     su
 
+PRODUCT_PACKAGES += \
+    static-toolbox \
+    updater
+
 # GPS
 PRODUCT_PACKAGES += \
     gps.odroidc
