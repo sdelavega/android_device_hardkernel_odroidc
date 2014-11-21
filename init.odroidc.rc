@@ -1,5 +1,6 @@
 import /init.${ro.hardware}.usb.rc
 import /init.${ro.hardware}.board.rc
+import /init.${ro.hardware}.wifi.rc
 
 on early-init
     loglevel 7
@@ -369,3 +370,4 @@ service su_daemon /system/xbin/su --daemon
     user root
     group root
     oneshot
+
