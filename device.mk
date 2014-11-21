@@ -161,6 +161,10 @@ ifneq ($(wildcard $(TARGET_PRODUCT_DIR)/ump.ko),)
 PRODUCT_COPY_FILES += $(TARGET_PRODUCT_DIR)/ump.ko:root/boot/ump.ko
 endif
 
+#Wi-Fi #4 Firmware
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rt2870.bin:root/lib/firmware/rt2870.bin
+
 $(call inherit-product-if-exists, external/libusb/usbmodeswitch/CopyConfigs.mk)
 $(call inherit-product-if-exists, hardware/amlogic/libril/config/Copy.mk)
 

@@ -93,6 +93,9 @@ WIFI_DRIVER_MODULE_NAME := 8192cu
 WIFI_DRIVER_FW_PATH_STA := none
 WIFI_DRIVER_MODULE_ARG  := "ifname=wlan0 if2name=p2p0"
 
+WIFI_DRIVER_MODULE_NAME2            := rt2800usb
+WIFI_DRIVER_MODULE_PATH2            := /system/lib/modules/rt2800usb.ko
+
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
 BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
 CONFIG_DRIVER_WEXT               := y
@@ -115,7 +118,6 @@ PRODUCT_DEFAULT_WIFI_CHANNELS := 13
 
 PRODUCT_COPY_FILES += \
         frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
-        frameworks/native/data/etc/android.hardware.wifi.direct.xml:system/etc/permissions/android.hardware.wifi.direct.xml
 
 PRODUCT_PACKAGES += \
         wpa_supplicant.conf \
@@ -147,7 +149,8 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/fstab.odroidc.sdboot:root/fstab.odroidc.sdboot
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/init.odroidc.board.rc:root/init.odroidc.board.rc
+	$(LOCAL_PATH)/init.odroidc.board.rc:root/init.odroidc.board.rc \
+	$(LOCAL_PATH)/init.odroidc.wifi.rc:root/init.odroidc.wifi.rc
 
 #########################################################################
 #
