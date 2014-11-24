@@ -65,3 +65,7 @@
 /dev/wifi_power           0660   wifi       wifi
 
 /dev/otz_client           0666   drm        drm
+
+# GPS
+/dev/ttyACM*   0666    gps             gps
+/dev/ttyUSB*   0666    gps             gps
