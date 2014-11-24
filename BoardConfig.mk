@@ -82,4 +82,8 @@ BOARD_SENSOR_AMLOGIC:=true
 BOARD_SENSOR_KIONIX_61G:=false
 #PRODUCT_EXTRA_RECOVERY_KEYS := ../common/releasekey.x509.pem
 
+# GPS
+BOARD_HAVE_ODROID_GPS := true
+BOARD_SUPPORT_EXTERNAL_GPS := true
+
 include device/amlogic/common/sepolicy.mk

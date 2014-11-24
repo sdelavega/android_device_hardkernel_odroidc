@@ -110,6 +110,10 @@ PRODUCT_PACKAGES += \
     Superuser \
     su
 
+# GPS
+PRODUCT_PACKAGES += \
+    gps.odroidc
+
 PRODUCT_COPY_FILES += \
     device/amlogic/common/tools/AmlHostsTool:system/bin/AmlHostsTool 
 
@@ -133,7 +137,6 @@ PRODUCT_COPY_FILES += \
 #cp kl file for adc keyboard
 PRODUCT_COPY_FILES += \
 	$(TARGET_PRODUCT_DIR)/Vendor_0001_Product_0001.kl:/system/usr/keylayout/Vendor_0001_Product_0001.kl
-
 #copy set_display_mode.sh
 PRODUCT_COPY_FILES += \
 	$(TARGET_PRODUCT_DIR)/set_display_mode.sh:system/bin/set_display_mode.sh 
