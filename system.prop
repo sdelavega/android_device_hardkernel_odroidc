@@ -70,6 +70,12 @@ ro.ui.cursor=surface
 #set to 0 temporarily so touch works without other changes
 ro.sf.hwrotation=0
 
+# GPS
+# support BAUD rate 4800, 9600
+ro.kernel.android.gps=/dev/ttyACM0
+ro.kernel.android.gps.speed=9600
+#ro.kernel.android.gps.speed=4800
+
 #camera 720p
 ro.camera.preview.MaxSize=1280x720
 ro.camera.preview.LimitedRate=1280x720x30,640x480x30,320x240x28
