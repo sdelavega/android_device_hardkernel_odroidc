@@ -48,7 +48,7 @@ TARGET_SIMULATOR := false
 
 TARGET_NO_KERNEL := false
 include device/hardkernel/$(TARGET_PRODUCT)/Kernel.mk
-TARGET_AMLOGIC_BOOTLOADER := $(PRODUCT_OUT)/u-boot.bin
+TARGET_BOOTLOADER := $(PRODUCT_OUT)/u-boot.bin
 TARGET_AMLOGIC_LOGO := $(PRODUCT_OUT)/res-package.img
 TARGET_AMLOGIC_RES_PACKAGE := device/hardkernel/odroidc/res_pack
 # TARGET_AMLOGIC_AML_LOGO := device/hardkernel/odroidc/aml_logo.bmp

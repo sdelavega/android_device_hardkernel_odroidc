@@ -262,17 +262,6 @@ PRODUCT_COPY_FILES += \
 	device/hardkernel/common/res/screen_saver/miracast.jpg:system/media/screensaver/images/miracast.jpg \
 	device/hardkernel/common/res/screen_saver/phone_remote.jpg:system/media/screensaver/images/phone_remote.jpg
 
-    ifeq ($(TARGET_USE_SECURITY_MODE),true)
-      PRODUCT_COPY_FILES += \
-        $(TARGET_PRODUCT_DIR)/u-boot-usb.bin.aml:$(PRODUCT_OUT)/u-boot-usb.bin.aml \
-        $(TARGET_PRODUCT_DIR)/ddr_init.bin:$(PRODUCT_OUT)/DDR_ENC.USB \
-        $(TARGET_PRODUCT_DIR)/u-boot.bin.aml:$(PRODUCT_OUT)/u-boot.bin.aml \
-        $(TARGET_PRODUCT_DIR)/u-boot.bin.aml:$(PRODUCT_OUT)/u-boot.bin
-    else
-      PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/u-boot.bin:u-boot.bin
-    endif
-
 #low memory killer
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/lowmemorykiller.txt:/system/etc/lowmemorykiller.txt
