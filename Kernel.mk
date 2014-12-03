@@ -3,12 +3,7 @@
 
 # for 1G DDR board, replace u-boot-1G.bin to u-boot.bin
 KERNEL_DEVICETREE := meson8b_odroidc
-
-ifeq ($(TARGET_USE_SECUREOS),true)
-KERNEL_DEFCONFIG := meson8b_tee_defconfig      # FIXME: What is for ODROID-C secure kernel?
-else
 KERNEL_DEFCONFIG := odroidc_defconfig
-endif
 
 KERNET_ROOTDIR := kernel
 KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ

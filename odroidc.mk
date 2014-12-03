@@ -172,9 +172,6 @@ PRODUCT_LOCALES := en_US fr_FR it_IT es_ES de_DE nl_NL cs_CZ pl_PL ja_JP zh_TW z
 
 BUILD_WITH_AMLOGIC_PLAYER := true
 BUILD_WITH_APP_OPTIMIZATION := true
-BUILD_WITH_WIDEVINE_DRM := false
-#BUILD_WITH_PLAYREADY_DRM := true
-#BOARD_WIDEVINE_SUPPORTLEVEL := 1
 #BUILD_WITH_MARLIN := true
 BUILD_WITH_EREADER := false
 BUILD_WITH_MIRACAST := false
@@ -222,20 +219,6 @@ PRODUCT_PACKAGES += \
 # Libs
 PRODUCT_PACKAGES += \
 	com.android.future.usb.accessory
-
-ifeq ($(BUILD_WITH_PLAYREADY_DRM), true)
-#playready license process in smoothstreaming(default)
-BOARD_PLAYREADY_LP_IN_SS := true
-#BOARD_PLAYREADY_TVP:= true
-endif
-
-#Widevine L1
-ifeq ($(BOARD_WIDEVINE_SUPPORTLEVEL),1)
-    TARGET_USE_SECUREOS := true
-    CONFIG_SECURE_OS_BDK := true
-    BOARD_WIDEVINE_OEMCRYPTO_LEVEL := 1
-    BOARD_OMX_WITH_TVP := true
-endif
 
 # Device specific system feature description
 PRODUCT_COPY_FILES += \
