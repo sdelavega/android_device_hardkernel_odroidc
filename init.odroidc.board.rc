@@ -41,7 +41,7 @@ on boot
 
 on property:init.svc.bootanim=running
     write /sys/class/graphics/fb1/free_scale 0
-    write sys/class/graphics/fb0/free_scale 0x10001
+    write /sys/class/graphics/fb0/free_scale 0x10001
     write /sys/class/graphics/fb0/blank 0
     write /sys/class/graphics/fb1/blank 1
     write /sys/class/graphics/fb2/blank 1
