@@ -87,3 +87,4 @@ BOARD_HAVE_ODROID_GPS := true
 BOARD_SUPPORT_EXTERNAL_GPS := true
 
 include device/hardkernel/common/sepolicy.mk
+include device/hardkernel/odroidc/rootsystem.mk
