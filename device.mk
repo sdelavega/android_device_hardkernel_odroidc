@@ -119,7 +119,7 @@ PRODUCT_PACKAGES += \
     gps.odroidc
 
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/tools/AmlHostsTool:system/bin/AmlHostsTool 
+    device/hardkernel/common/tools/AmlHostsTool:system/bin/AmlHostsTool
 
 #possible options:1 mass_storage 2 mtp
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
@@ -132,11 +132,11 @@ PRODUCT_COPY_FILES += \
 
 #copy all possible idc to target
 PRODUCT_COPY_FILES += \
-    device/amlogic/common/idc/ft5x06.idc:system/usr/idc/ft5x06.idc \
-    device/amlogic/common/idc/pixcir168.idc:system/usr/idc/pixcir168.idc \
-    device/amlogic/common/idc/ssd253x-ts.idc:system/usr/idc/ssd253x-ts.idc \
-    device/amlogic/common/idc/Vendor_222a_Product_0001.idc:system/usr/idc/Vendor_222a_Product_0001.idc \
-    device/amlogic/common/idc/Vendor_dead_Product_beef.idc:system/usr/idc/Vendor_dead_Product_beef.idc
+    device/hardkernel/common/idc/ft5x06.idc:system/usr/idc/ft5x06.idc \
+    device/hardkernel/common/idc/pixcir168.idc:system/usr/idc/pixcir168.idc \
+    device/hardkernel/common/idc/ssd253x-ts.idc:system/usr/idc/ssd253x-ts.idc \
+    device/hardkernel/common/idc/Vendor_222a_Product_0001.idc:system/usr/idc/Vendor_222a_Product_0001.idc \
+    device/hardkernel/common/idc/Vendor_dead_Product_beef.idc:system/usr/idc/Vendor_dead_Product_beef.idc
 
 #cp kl file for adc keyboard
 PRODUCT_COPY_FILES += \
@@ -187,7 +187,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
 
 # Get everything else from the parent package
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
-$(call inherit-product, device/amlogic/common/generic_no_telephony_amlogic.mk)
+$(call inherit-product, device/hardkernel/common/generic_no_telephony_amlogic.mk)
 
 # Include BUILD_NUMBER if defined
 $(call inherit-product, $(TARGET_PRODUCT_DIR)/version_id.mk)
