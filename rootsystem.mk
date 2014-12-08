@@ -1,6 +1,6 @@
 .PHONY: $(PRODUCT_OUT)/rootsystem/fstab.odroidc
 
-$(PRODUCT_OUT)/rootsystem/fstab.odroidc:
+$(PRODUCT_OUT)/rootsystem/fstab.odroidc: $(PRODUCT_OUT)/rootsystem
 	sed -i "`grep -nE '/system.ext4' $@ | cut -d : -f 1` s/ro/rw/" $@
 
 $(PRODUCT_OUT)/rootsystem: $(BUILD_SYSTEMIMAGE)
