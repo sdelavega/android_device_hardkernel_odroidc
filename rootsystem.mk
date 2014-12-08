@@ -3,7 +3,7 @@
 $(PRODUCT_OUT)/rootsystem/fstab.odroidc: $(PRODUCT_OUT)/rootsystem
 	sed -i "`grep -nE '/system.ext4' $@ | cut -d : -f 1` s/ro/rw/" $@
 
-$(PRODUCT_OUT)/rootsystem: $(BUILD_SYSTEMIMAGE)
+$(PRODUCT_OUT)/rootsystem: droidcore
 	echo combine the directories system/ and root/ into rootsystem/.
 	cp -arp $(PRODUCT_OUT)/system $(PRODUCT_OUT)/rootsystem
 	rm -rf $(PRODUCT_OUT)/rootsystem/init
@@ -22,4 +22,6 @@ $(PRODUCT_OUT)/rootsystem.img: $(PRODUCT_OUT)/rootsystem \
 	echo Creating Android single root file system.
 	$(MAKE_EXT4FS) -s -l $(BOARD_SYSTEMIMAGE_PARTITION_SIZE) -a system $@ $<
 
-rootsystem.img: $(PRODUCT_OUT)/rootsystem.img
+.PHONY: rootsystem
+
+rootsystem: $(PRODUCT_OUT)/rootsystem.img
