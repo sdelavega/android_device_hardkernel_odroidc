@@ -5,6 +5,7 @@ $(PRODUCT_OUT)/rootsystem/fstab.odroidc: $(PRODUCT_OUT)/rootsystem
 
 $(PRODUCT_OUT)/rootsystem: droidcore
 	echo combine the directories system/ and root/ into rootsystem/.
+	rm -rf $@
 	cp -arp $(PRODUCT_OUT)/system $(PRODUCT_OUT)/rootsystem
 	rm -rf $(PRODUCT_OUT)/rootsystem/init
 	rm -rf $(PRODUCT_OUT)/rootsystem/sbin/adbd
