@@ -1,43 +1,31 @@
 #!/system/bin/sh
 
-old_state=1
-bsetmode=0
-support_flag=1
-outputmode=$(cat /sys/class/display/mode)
-hpdstate=$(cat /sys/class/amhdmitx/amhdmitx0/hpd_state)
-old_state=$hpdstate
+mode=`for x in $(cat /proc/cmdline); do case ${x} in hdmimode=*) MODE=${x#*=}; echo -n $MODE; ;; esac; done`
 
-if [ "$hpdstate" = "1" ]; then
+HPD_STATE=/sys/class/amhdmitx/amhdmitx0/hpd_state
+DISP_CAP=/sys/class/amhdmitx/amhdmitx0/disp_cap
+DISP_MODE=/sys/class/display/mode
 
-    while read line
-    do
-       if [ "$outputmode" = "$line" ]; then
-           support_flag=1
-           break;
-       else
-          support_flag=0
-      fi
-
-        echo "$line" | grep -q '*'
-        if [ $? -eq 0 ]
-        then
-            bestmode=${line/'*'}
-        fi
-    done < /sys/class/amhdmitx/amhdmitx0/disp_cap
-
-    if [ "$support_flag" = "0" -a "$bestmode" != "0" ]; then
-        outputmode=$bestmode
-    else
-        if [ "$support_flag" = "0" ]; then
-            outputmode=$bestmode
-        fi
-    fi
-
-else
-        if [ "$outputmode" != "480cvbs" -a "$outputmode" != "576cvbs" ] ; then
-    outputmode=576cvbs
-  fi
+hdmi=`cat $HPD_STATE`
+if [ $hdmi -eq 1 ]; then
+    echo $mode > $DISP_MODE
 fi
+
+outputmode=$mode
+
+case $mode in
+    vga*)   fbset -fb /dev/graphics/fb0 -g 640 480 640 960 32 ;;
+    480*)   fbset -fb /dev/graphics/fb0 -g 720 480 720 960 32 ;;
+    svga*)  fbset -fb /dev/graphics/fb0 -g 800 600 800 1200 32 ;;
+    576*)   fbset -fb /dev/graphics/fb0 -g 720 576 720 1152 32 ;;
+    720*)   fbset -fb /dev/graphics/fb0 -g 1280 720 1280 1440 32 ;;
+    800*)   fbset -fb /dev/graphics/fb0 -g 1280 800 1280 1600 32 ;;
+    sxga*)  fbset -fb /dev/graphics/fb0 -g 1280 1024 1280 2048 32 ;;
+    wsxga*) fbset -fb /dev/graphics/fb0 -g 1440 900 1440 1800 32 ;;
+    1080*)  fbset -fb /dev/graphics/fb0 -g 1920 1080 1920 2160 32 ;;
+    1920x1200*) fbset -fb /dev/graphics/fb0 -g 1920 1200 1920 2400 32 ;;
+esac
+fbset -fb /dev/graphics/fb1 -g 32 32 32 32 32
 
 echo $outputmode > /sys/class/display/mode
 
@@ -46,111 +34,23 @@ echo 0 > /sys/class/graphics/fb0/free_scale
 echo 1 > /sys/class/graphics/fb0/freescale_mode
 
 
-        case $outputmode in
-
-                480*)
-                echo 0 0 1279 719 > /sys/class/graphics/fb0/free_scale_axis
-                echo 30 20 689 459 > /sys/class/graphics/fb0/window_axis
-                ;;
-
-                576*)
-                echo 0 0 1279 719 > /sys/class/graphics/fb0/free_scale_axis
-                echo 30 20 689 555 > /sys/class/graphics/fb0/window_axis
-                ;;
-
-                720*)
-                echo 0 0 1279 719 > /sys/class/graphics/fb0/free_scale_axis
-                echo 40 30 1239 689 > /sys/class/graphics/fb0/window_axis
-                ;;
-
-                1080*)
-                echo 0 0 1919 1079 > /sys/class/graphics/fb0/free_scale_axis
-                echo 60 40 1859 1039 > /sys/class/graphics/fb0/window_axis
-                ;;
-
-                *)
-                #outputmode= 720p
-                echo 720p > /sys/class/display/mode
-                echo 0 0 1279 719 > /sys/class/graphics/fb0/free_scale_axis
-                echo 40 30 1239 689 > /sys/class/graphics/fb0/window_axis
-
+case $outputmode in
+        vga*)  M="0 0 639 749" ;;
+        svga*) M="0 0 799 599" ;;
+        sxga*) M="0 0 1279 1023" ;;
+        wsxga*) M="0 0 1439 899" ;;
+        480*) M="0 0 719 479" ;;
+        576*) M="0 0 719 575" ;;
+        720*) M="0 0 1279 719" ;;
+        800*) M="0 0 1279 799" ;;
+        1080*) M="0 0 1919 1079" ;;
+        1920x1200*) M="0 0 1919 1199" ;;
 esac
 
+echo $M > /sys/class/graphics/fb0/free_scale_axis
+echo $M > /sys/class/graphics/fb0/window_axis
+
+
 echo 0x10001 > /sys/class/graphics/fb0/free_scale
-echo 1 > /sys/class/graphics/fb1/blank
+echo 0 > /sys/class/graphics/fb1/free_scale
 
-
-#for checking is hdmi or cvbs
-while true ; do
-hpdstate=$(cat /sys/class/amhdmitx/amhdmitx0/hpd_state)
-if [ $hpdstate != $old_state ] ; then
-        old_state=$hpdstate
-        if [ "$hpdstate" = "1" ]; then
-                        while read line
-      do
-          if [ "$outputmode" = "$line" ]; then
-              support_flag=1
-              break;
-          else
-              support_flag=0
-          fi
-
-          echo "$line" | grep -q '*'
-          if [ $? -eq 0 ]
-          then
-              bestmode=${line/'*'}
-          fi
-    done < /sys/class/amhdmitx/amhdmitx0/disp_cap
-
-    if [ "$support_flag" = "0" -a "$bestmode" != "0" ]; then
-        outputmode=$bestmode
-    else
-        if [ "$support_flag" = "0" ]; then
-            outputmode=$bestmode
-        fi
-    fi
-
-        else
-                if [ "$outputmode" != "480cvbs" -a "$outputmode" != "576cvbs" ] ; then
-                        outputmode=576cvbs
-                fi
-        fi
-        echo $outputmode > /sys/class/display/mode
-        echo 0 > /sys/class/ppmgr/ppscaler
-        echo 0 > /sys/class/graphics/fb0/free_scale
-        echo 1 > /sys/class/graphics/fb0/freescale_mode
-
-        case $outputmode in
-
-                480*)
-                echo 0 0 1279 719 > /sys/class/graphics/fb0/free_scale_axis
-                echo 30 20 689 459 > /sys/class/graphics/fb0/window_axis
-                ;;
-
-                576*)
-                echo 0 0 1279 719 > /sys/class/graphics/fb0/free_scale_axis
-                echo 30 20 689 555 > /sys/class/graphics/fb0/window_axis
-                ;;
-
-                720*)
-                echo 0 0 1279 719 > /sys/class/graphics/fb0/free_scale_axis
-                echo 40 30 1239 689 > /sys/class/graphics/fb0/window_axis
-                ;;
-
-                1080*)
-                echo 0 0 1919 1079 > /sys/class/graphics/fb0/free_scale_axis
-                echo 60 40 1859 1039 > /sys/class/graphics/fb0/window_axis
-                ;;
-
-                *)
-                #outputmode= 720p
-                echo 720p > /sys/class/display/mode
-                echo 0 0 1279 719 > /sys/class/graphics/fb0/free_scale_axis
-                echo 40 30 1239 689 > /sys/class/graphics/fb0/window_axis
-
-        esac
-echo 0x10001 > /sys/class/graphics/fb0/free_scale
-echo 1 > /sys/class/graphics/fb1/blank
-fi
-
-done
