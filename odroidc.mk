@@ -237,12 +237,6 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/alarm_whitelist.txt:/system/etc/alarm_whitelist.txt \
 	$(LOCAL_PATH)/remote.conf:system/etc/remote.conf
 
-
-PRODUCT_COPY_FILES += \
-	device/hardkernel/common/res/screen_saver/dlna.jpg:system/media/screensaver/images/dlna.jpg \
-	device/hardkernel/common/res/screen_saver/miracast.jpg:system/media/screensaver/images/miracast.jpg \
-	device/hardkernel/common/res/screen_saver/phone_remote.jpg:system/media/screensaver/images/phone_remote.jpg
-
 #low memory killer
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/lowmemorykiller.txt:/system/etc/lowmemorykiller.txt
