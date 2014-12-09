@@ -202,18 +202,13 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
         OdroidUpdater \
         Utility \
-	SubTitle \
 	remotecfg \
-	RC_Server \
 	Discovery.apk \
-	IpRemote.apk \
-	PromptUser \
 	libasound \
 	alsalib-alsaconf \
 	alsalib-pcmdefaultconf \
 	alsalib-cardsaliasesconf \
-	libamstreaming \
-	bootplayer
+	libamstreaming
 
 # Libs
 PRODUCT_PACKAGES += \
