@@ -204,8 +204,6 @@ ro.amlogic.no.preloadclass=1
 virtualsd.enable=true
 
 #service.adb.tcp.port=5555
-const.window.w=1920
-const.window.h=1080
 sys.defaultStream.ismusic=true
 ro.app.optimization=true
 ro.platform.has.realoutputmode=true
