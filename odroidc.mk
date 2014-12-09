@@ -235,8 +235,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/alarm_blacklist.txt:/system/etc/alarm_blacklist.txt \
 	$(LOCAL_PATH)/alarm_whitelist.txt:/system/etc/alarm_whitelist.txt \
-	$(LOCAL_PATH)/remote.conf:system/etc/remote.conf \
-	$(LOCAL_PATH)/default_shortcut.cfg:system/etc/default_shortcut.cfg
+	$(LOCAL_PATH)/remote.conf:system/etc/remote.conf
 
 
 PRODUCT_COPY_FILES += \
