@@ -200,7 +200,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 PRODUCT_PACKAGES += \
-        OdroidUpdater \
         Utility \
 	remotecfg \
 	Discovery.apk \
