@@ -19,7 +19,9 @@ case $mode in
     svga*)  fbset -fb /dev/graphics/fb0 -g 800 600 800 1200 32 ;;
     576*)   fbset -fb /dev/graphics/fb0 -g 720 576 720 1152 32 ;;
     720*)   fbset -fb /dev/graphics/fb0 -g 1280 720 1280 1440 32 ;;
-    800*)   fbset -fb /dev/graphics/fb0 -g 1280 800 1280 1600 32 ;;
+    800p)   fbset -fb /dev/graphics/fb0 -g 1280 800 1280 1600 32 ;;
+    800x480*)
+            fbset -fb /dev/graphics/fb0 -g 800 480 800 960 32 ;;
     sxga*)  fbset -fb /dev/graphics/fb0 -g 1280 1024 1280 2048 32 ;;
     wsxga*) fbset -fb /dev/graphics/fb0 -g 1440 900 1440 1800 32 ;;
     1080*)  fbset -fb /dev/graphics/fb0 -g 1920 1080 1920 2160 32 ;;
@@ -42,7 +44,8 @@ case $outputmode in
         480*) M="0 0 719 479" ;;
         576*) M="0 0 719 575" ;;
         720*) M="0 0 1279 719" ;;
-        800*) M="0 0 1279 799" ;;
+        800p) M="0 0 1279 799" ;;
+        800x480*) M="0 0 799 479" ;;
         1080*) M="0 0 1919 1079" ;;
         1920x1200*) M="0 0 1919 1199" ;;
 esac
