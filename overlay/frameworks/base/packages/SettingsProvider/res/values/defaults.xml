@@ -29,11 +29,6 @@
     <fraction name="def_window_transition_scale">0%</fraction>
     <!-- Default for UI touch sounds enabled -->
     <bool name="def_sound_effects_enabled">true</bool>
-    <!--Setting default IME config-->
-    <string name="config_defaultIME">com.amlogic.inputmethod.remote/.RemoteIME</string>
-
-    <!--Default values for hardware keyboard enable-->
-    <bool name="def_hard_input_enable">false</bool>
 
     <bool name="def_lockscreen_disabled">true</bool>
 </resources>
