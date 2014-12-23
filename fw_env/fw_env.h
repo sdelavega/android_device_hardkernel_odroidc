@@ -27,6 +27,8 @@
  * See included "fw_env.config" sample file
  * for notes on configuration.
  */
+
+#if 0
 #define CONFIG_FILE     "/etc/fw_env.config"
 
 #define HAVE_REDUND /* For systems with 2 env sectors */
@@ -36,6 +38,12 @@
 #define ENV1_SIZE         0x4000
 #define DEVICE1_ESIZE     0x4000
 #define DEVICE1_ENVSECTORS     2
+#else
+#define DEVICE1_NAME      "/dev/block/mmcblk0"
+#define DEVICE1_OFFSET    0x80000
+#define ENV1_SIZE         0x8000
+#define DEVICE1_ESIZE     0x8000
+#endif
 #define DEVICE2_OFFSET    0x0000
 #define ENV2_SIZE         0x4000
 #define DEVICE2_ESIZE     0x4000

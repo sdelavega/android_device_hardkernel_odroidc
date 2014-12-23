@@ -249,9 +249,6 @@ PRODUCT_PACKAGES += \
         fw_printenv \
         fw_setenv
 
-PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/fw_env/fw_env.config:root/etc/fw_env.config
-
 # inherit from the non-open-source side, if present
 $(call inherit-product-if-exists, device/hardkernel/proprietary/proprietary.mk)
 $(call inherit-product-if-exists, vendor/hardkernel/odroidc/device-vendor.mk)
