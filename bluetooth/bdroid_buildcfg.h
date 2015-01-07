@@ -18,5 +18,15 @@
 #define _BDROID_BUILDCFG_H
 
 #define BTM_DEF_LOCAL_NAME   "odroidc"
+// At present either USB or UART is supported
+#define BLUETOOTH_HCI_USE_USB          TRUE
+// Bluetooth Low Power Mode is supported on BT4.0
+#define HCILP_INCLUDED                 FALSE
+
+// 10.2 Updates
+#define BLE_INCLUDED FALSE
+#define BTA_GATT_INCLUDED FALSE
+#define SMP_INCLUDED FALSE
+#define PAN_NAP_DISABLED TRUE
 
 #endif

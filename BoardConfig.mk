@@ -86,6 +86,13 @@ BOARD_SENSOR_KIONIX_61G:=false
 BOARD_HAVE_ODROID_GPS := true
 BOARD_SUPPORT_EXTERNAL_GPS := true
 
+# Bluetooth
+BOARD_HAVE_BLUETOOTH := true
+BLUETOOTH_HCI_USE_USB := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_BDROID_BUILDCFG_INCLUDE_DIR := device/hardkernel/odroidc/bluetooth
+BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
+
 include device/hardkernel/common/sepolicy.mk
 include device/hardkernel/odroidc/rootsystem.mk
 include device/hardkernel/odroidc/install-packages.mk

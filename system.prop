@@ -38,7 +38,6 @@ hw.hasusbcamera=true
 hw.has.accelerometer=true
 
 #used in packages/apps/Settings/.../Utils.java
-hw.has.bluetooth=false
 ro.ethernet.default_on=true
 ro.config.low_ram=false
 media.amplayer.low_ram=true
@@ -229,7 +228,6 @@ prop.sp.brightness=off
 ro.quickboot.enable=false
 
 #config.disable_telephony=true
-#config.disable_bluetooth=true
 config.enable_quickboot=true
 #config.disable_vibrator=true
 

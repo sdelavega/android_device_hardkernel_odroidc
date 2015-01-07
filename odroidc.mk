@@ -223,7 +223,8 @@ PRODUCT_COPY_FILES += \
 	frameworks/native/data/etc/android.hardware.usb.host.xml:system/etc/permissions/android.hardware.usb.host.xml \
 	frameworks/native/data/etc/android.software.sip.voip.xml:system/etc/permissions/android.software.sip.voip.xml \
 	frameworks/native/data/etc/android.hardware.sensor.gyroscope.xml:system/etc/permissions/android.hardware.sensor.gyroscope.xml \
-	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml
+	frameworks/native/data/etc/android.hardware.camera.front.xml:system/etc/permissions/android.hardware.camera.front.xml \
+	frameworks/native/data/etc/android.hardware.bluetooth_le.xml:system/etc/permissions/android.hardware.bluetooth_le.xml
 
 
 PRODUCT_COPY_FILES += \
@@ -238,8 +239,7 @@ PRODUCT_COPY_FILES += \
 # App optimization
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/liboptimization.so:system/lib/liboptimization.so \
-	$(LOCAL_PATH)/config:system/etc/config  \
-    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
+	$(LOCAL_PATH)/config:system/etc/config
 
 PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/res_pack/hardkernel-720.bmp:$(PRODUCT_OUT)/hardkernel-720.bmp
