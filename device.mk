@@ -118,6 +118,11 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     gps.odroidc
 
+# Bluetooth
+PRODUCT_PACKAGES += \
+    bluetooth.default \
+    Bluetooth
+
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/tools/AmlHostsTool:system/bin/AmlHostsTool
 
