@@ -194,7 +194,4 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/locales_full.mk)
 #$(call inherit-product, $(SRC_TARGET_DIR)/product/generic_no_telephony.mk)
 $(call inherit-product, device/hardkernel/common/generic_no_telephony_amlogic.mk)
 
-# Include BUILD_NUMBER if defined
-$(call inherit-product, $(TARGET_PRODUCT_DIR)/version_id.mk)
-
 DISPLAY_BUILD_NUMBER := true
