@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
 /**
- * Copyright (c) 2009, The Android Open Source Project
+ * Copyright (c) 2013, The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,5 @@
 -->
 <resources>
     <bool name="def_accelerometer_rotation">false</bool>
-    <bool name="def_lockscreen_disabled">true</bool>
-    <integer name="def_screen_off_timeout">604800000</integer>
-    <bool name="def_install_non_market_apps">true</bool>
 </resources>
+
