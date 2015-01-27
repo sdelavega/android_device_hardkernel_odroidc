@@ -148,7 +148,8 @@ PRODUCT_COPY_FILES += \
 	$(TARGET_PRODUCT_DIR)/Vendor_0001_Product_0001.kl:/system/usr/keylayout/Vendor_0001_Product_0001.kl
 #copy set_display_mode.sh
 PRODUCT_COPY_FILES += \
-	$(TARGET_PRODUCT_DIR)/set_display_mode.sh:system/bin/set_display_mode.sh 
+	$(TARGET_PRODUCT_DIR)/set_display_mode.sh:system/bin/set_display_mode.sh  \
+	$(TARGET_PRODUCT_DIR)/preinstall.sh:system/bin/preinstall.sh
 
 #copy zram_mount.sh
 PRODUCT_COPY_FILES += \
