@@ -37,7 +37,7 @@
 
 #possible serial
 /dev/ttyS1                0660   bluetooth     net_bt_stack
-/dev/ttyS2                0660   bluetooth     net_bt_stack
+/dev/ttyS2                0666   system     system
 /dev/ttyS3                0666   system     system
 /dev/ttya0                0660   system     system
 /dev/ttya1                0660   system     system
