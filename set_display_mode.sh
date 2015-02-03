@@ -15,7 +15,7 @@ for x in $(cat /proc/cmdline); do
 done
 
 for x in top left right bottom; do
-        v=$(fw_printenv -n $x)
+        v=$(fw_printenv -n overscan_$x)
         [ "$v" == "" ] && v=0
         export $x=$v
 done
