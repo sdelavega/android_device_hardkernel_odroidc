@@ -281,6 +281,7 @@ int fw_printenv (int argc, char *argv[])
 	char *env, *nxt;
 	int i, n_flag;
 	int rc = 0;
+	static char buf[4096];
 
 	if (fw_env_open())
 		return -1;
@@ -295,7 +296,8 @@ int fw_printenv (int argc, char *argv[])
 				}
 			}
 
-			printf ("%s\n", env);
+			sprintf (buf, "%s\n", env);
+			write(STDOUT_FILENO, buf, strlen(buf));
 		}
 		return 0;
 	}
@@ -329,10 +331,10 @@ int fw_printenv (int argc, char *argv[])
 			val = envmatch (name, env);
 			if (val) {
 				if (!n_flag) {
-					fputs (name, stdout);
-					putc ('=', stdout);
+					sprintf(buf, "%s=", name);
+					write(STDOUT_FILENO, buf, strlen(buf));
 				}
-				puts (val);
+				write(STDOUT_FILENO, val, strlen(val));
 				break;
 			}
 		}
