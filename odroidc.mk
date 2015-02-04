@@ -30,14 +30,15 @@ $(call inherit-product, device/hardkernel/odroidc/device.mk)
 PRODUCT_BRAND := ODROID
 PRODUCT_DEVICE := odroidc
 PRODUCT_NAME := odroidc
-PRODUCT_CHARACTERISTICS := odroidc
 
 include frameworks/native/build/mbox-1024-dalvik-heap.mk
 
 # Discard inherited values and use our own instead.
 PRODUCT_MANUFACTURER := HardKernel Co., Ltd.
 PRODUCT_MODEL := ODROIDC
-# PRODUCT_CHARACTERISTICS := tablet,nosdcard
+PRODUCT_CHARACTERISTICS := tablet
+PRODUCT_AAPT_CONFIG := normal hdpi xhdpi xxhdpi
+PRODUCT_AAPT_PREF_CONFIG := xhdpi xxhdpi
 
 # for security boot
 #TARGET_USE_SECURITY_MODE :=true
