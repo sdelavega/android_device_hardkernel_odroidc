@@ -128,7 +128,8 @@ PRODUCT_COPY_FILES += \
 
 #possible options:1 mass_storage 2 mtp
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
-	persist.sys.usb.config=mass_storage
+	persist.sys.usb.config=mass_storage \
+	ro.kernel.android.checkjni=0
 
 # USB
 PRODUCT_COPY_FILES += \
