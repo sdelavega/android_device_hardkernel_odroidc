@@ -107,7 +107,6 @@ PRODUCT_PACKAGES += \
     usbpower
 
 PRODUCT_PACKAGES += \
-    Superuser \
     su
 
 PRODUCT_PACKAGES += \
