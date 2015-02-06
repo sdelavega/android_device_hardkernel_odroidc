@@ -1,0 +1,4 @@
+148f 5572 rt5572sta /system/lib/modules/rt5572sta.ko
+0bda 8176 8192cu /system/lib/modules/8192cu.ko
+0bda 7811 8192cu /system/lib/modules/8192cu.ko
+0bda 817a 8192cu /system/lib/modules/8192cu.ko

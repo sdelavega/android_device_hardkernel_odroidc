@@ -86,24 +86,21 @@ BOARD_USES_USB_PM := true
 #                                                WiFi
 #
 #########################################################################
-WIFI_DRIVER             := rtl8192cu
-BOARD_WIFI_VENDOR       := realtek
-BOARD_WLAN_DEVICE       := rtl8192cu
-WIFI_DRIVER_MODULE_PATH := /system/lib/modules/8192cu.ko
-WIFI_DRIVER_MODULE_NAME := 8192cu
-WIFI_DRIVER_FW_PATH_STA := none
-WIFI_DRIVER_MODULE_ARG  := "ifname=wlan0 if2name=p2p0"
+WIFI_DRIVER                 := rtl8192cu
+BOARD_WIFI_VENDOR           := realtek
+BOARD_WLAN_DEVICE           := rtl8192cu
+WIFI_DRIVER_MODULE_NAME     := rtl8192cu
+WIFI_DRIVER_MODULE_PATH     := /system/lib/modules/8192cu.ko
 
-WIFI_DRIVER_MODULE_NAME2            := rt2800usb
-WIFI_DRIVER_MODULE_PATH2            := /system/lib/modules/rt2800usb.ko
+WIFI_DRIVER_MODULE_NAME2    := rt5572sta
+WIFI_DRIVER_MODULE_PATH2    := /system/lib/modules/rt5572sta.ko
+
 
 WPA_SUPPLICANT_VERSION           := VER_0_8_X
-BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
-CONFIG_DRIVER_WEXT               := y
-BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_nl80211
-BOARD_HOSTAPD_DRIVER             := NL80211
-BOARD_HOSTAPD_PRIVATE_LIB        := lib_driver_cmd_nl80211
+BOARD_WPA_SUPPLICANT_DRIVER      := WEXT
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_rtl
 
+WIFI_DRIVER_MODULE_ARG    := ""
 WIFI_FIRMWARE_LOADER      := ""
 WIFI_DRIVER_FW_PATH_STA   := ""
 WIFI_DRIVER_FW_PATH_AP    := ""
@@ -149,8 +146,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/fstab.odroidc:root/fstab.odroidc
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/init.odroidc.board.rc:root/init.odroidc.board.rc \
-	$(LOCAL_PATH)/init.odroidc.wifi.rc:root/init.odroidc.wifi.rc
+	$(LOCAL_PATH)/init.odroidc.board.rc:root/init.odroidc.board.rc
 
 #########################################################################
 #
@@ -249,6 +245,10 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
         fw_printenv \
         fw_setenv
+
+PRODUCT_COPY_FILES += \
+    device/hardkernel/odroidc/RT2870STA.dat:system/etc/Wireless/RT2870STA/RT2870STA.dat \
+    device/hardkernel/odroidc/wifi_id_list.txt:system/etc/wifi_id_list.txt
 
 # inherit from the non-open-source side, if present
 $(call inherit-product-if-exists, device/hardkernel/proprietary/proprietary.mk)
