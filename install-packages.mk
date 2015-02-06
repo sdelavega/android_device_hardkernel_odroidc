@@ -53,6 +53,7 @@ update.zip: $(PRODUCT_OUT)/update.zip
 $(PRODUCT_OUT)/obj/installpackage: $(PRODUCT_OUT)/update.zip
 	rm -rf $@
 	mkdir -p $@
+	cp -a $(PRODUCT_OUT)/cache/* $(PRODUCT_OUT)/obj/installpackage/
 	cp -a $< $(PRODUCT_OUT)/obj/installpackage/
 
 $(PRODUCT_OUT)/installpackage.img: $(PRODUCT_OUT)/obj/installpackage
