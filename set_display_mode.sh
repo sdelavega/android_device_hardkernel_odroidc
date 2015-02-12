@@ -66,6 +66,7 @@ echo 1 > /sys/class/graphics/fb0/freescale_mode
 
 case $outputmode in
     vga*) M="0 0 639 749" ;;
+    800x480*) M="0 0 799 479" ;;
     800x600p60*) M="0 0 799 599" ;;
     1024x600p60h*) M="0 0 1023 599" ;;
     1024x768p60h*) M="0 0 1023 767" ;;
