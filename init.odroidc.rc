@@ -357,6 +357,12 @@ service multitouch /system/bin/insmod /system/lib/modules/hid-multitouch.ko
     group root
     disabled
 
+service reset_density /system/bin/sh /system/bin/wm density reset
+    class core
+    user root
+    group root
+    disabled
+
 on property:hw.nophone=true
   stop ril-daemon
 
@@ -368,6 +374,9 @@ on property:dev.bootcomplete=1
 
 on property:dev.bootcomplete=1
     start multitouch
+
+on property:dev.bootcomplete=1
+    start reset_density
 
 service imageserver /system/bin/imageserver
     class main
