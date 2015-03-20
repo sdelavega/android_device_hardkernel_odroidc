@@ -17,8 +17,7 @@ TARGET_AMLOGIC_INT_RECOVERY_KERNEL := $(KERNEL_OUT)/arch/arm/boot/uImage_recover
 MALI_OUT := $(TARGET_OUT_INTERMEDIATES)/hardware/arm/gpu/mali
 UMP_OUT  := $(TARGET_OUT_INTERMEDIATES)/hardware/arm/gpu/ump
 WIFI_OUT  := $(TARGET_OUT_INTERMEDIATES)/hardware/wifi
-RALINK_DRIVER := rt5572sta.ko
-RALINK_DRIVER_PATH := hardware/wifi/ralink/drivers/rt2870/DPO_RT5572_LinuxSTA_2.6.1.3_20121022
+BACKPORTS_PATH := hardware/backports
 
 PREFIX_CROSS_COMPILE=arm-linux-gnueabihf-
 #arm-none-linux-gnueabi-
@@ -36,7 +35,7 @@ define mv-modules
 mdpath=`find $(KERNEL_MODULES_OUT) -type f -name modules.dep`;\
        if [ "$$mdpath" != "" ];then\
        mpath=`dirname $$mdpath`;\
-       ko=`find $$mpath/kernel $$mpath/hardware $(RALINK_DRIVER_PATH) -type f -name *.ko`;\
+       ko=`find $$mpath/kernel $$mpath/hardware $(BACKPORTS_PATH) -type f -name *.ko`;\
        for i in $$ko; do mv $$i $(KERNEL_MODULES_OUT)/; done;\
        fi
 endef
@@ -60,7 +59,8 @@ $(TARGET_PREBUILT_KERNEL): $(KERNEL_OUT) $(KERNEL_CONFIG)
 	$(MAKE) -C $(KERNEL_ROOTDIR) O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) modules
 	$(MAKE) -C $(KERNEL_ROOTDIR) O=../$(KERNEL_OUT) INSTALL_MOD_PATH=../../$(KERNEL_MODULES_INSTALL) INSTALL_MOD_STRIP=1 ARCH=arm CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) modules_install
 	$(MAKE) -C $(KERNEL_ROOTDIR) O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) dtbs
-	$(MAKE) -C $(RALINK_DRIVER_PATH) O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=$(PREFIX_CROSS_COMPILE)
+	$(MAKE) -C $(BACKPORTS_PATH) O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) KLIB_BUILD=../../$(KERNEL_OUT) defconfig-odroidc
+	$(MAKE) -C $(BACKPORTS_PATH) O=../$(KERNEL_OUT) ARCH=arm CROSS_COMPILE=$(PREFIX_CROSS_COMPILE) KLIB_BUILD=../../$(KERNEL_OUT)
 	$(cp-modules)
 	$(mv-modules)
 	$(clean-module-folder)
