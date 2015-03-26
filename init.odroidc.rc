@@ -262,6 +262,10 @@ on boot
     chown system system /sys/class/mpgpu/mpgpucmd
     chmod 664 /sys/class/mpgpu/mpgpucmd
 
+    insmod /system/lib/modules/compat.ko
+    insmod /system/lib/modules/cfg80211.ko
+    insmod /system/lib/modules/mac80211.ko
+
 #start sdcard
 
 service display /system/bin/set_display_mode.sh 
