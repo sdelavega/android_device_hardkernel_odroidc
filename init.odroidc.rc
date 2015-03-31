@@ -352,7 +352,7 @@ service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw
 service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start
 
-service usbstorage /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbstorage /storage/usbstorage
+service fuse_usbstorage /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbstorage /storage/usbstorage
     class late_start
 
 service multitouch /system/bin/insmod /system/lib/modules/hid-multitouch.ko
