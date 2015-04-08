@@ -265,12 +265,6 @@ on boot
     insmod /system/lib/modules/compat.ko
     insmod /system/lib/modules/cfg80211.ko
     insmod /system/lib/modules/mac80211.ko
-    insmod /system/lib/modules/rt2x00lib.ko
-    insmod /system/lib/modules/rt2x00usb.ko
-    insmod /system/lib/modules/rt2800lib.ko
-    insmod /system/lib/modules/rtlwifi.ko
-    insmod /system/lib/modules/rtl_usb.ko
-    insmod /system/lib/modules/rtl8192c-common.ko
 
 #start sdcard
 
