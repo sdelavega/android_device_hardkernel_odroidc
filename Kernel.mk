@@ -35,8 +35,11 @@ define mv-modules
 mdpath=`find $(KERNEL_MODULES_OUT) -type f -name modules.dep`;\
        if [ "$$mdpath" != "" ];then\
        mpath=`dirname $$mdpath`;\
-       ko=`find $$mpath/kernel $$mpath/hardware $(BACKPORTS_PATH) -type f -name *.ko`;\
-       for i in $$ko; do mv $$i $(KERNEL_MODULES_OUT)/; done;\
+       ko=`find $$mpath/kernel $$mpath/hardware -type f -name *.ko`;\
+       for i in $$ko; do echo $$i; mv $$i $(KERNEL_MODULES_OUT)/; done;\
+       ko=`find $(BACKPORTS_PATH) -type f -name *.ko`;\
+       mkdir -p $(KERNEL_MODULES_OUT)/backports;\
+       for i in $$ko; do echo $$i; mv $$i $(KERNEL_MODULES_OUT)/backports/; done;\
        fi
 endef
 
