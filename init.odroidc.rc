@@ -283,10 +283,6 @@ on boot
 
 #start sdcard
 
-service display /system/bin/set_display_mode.sh 
-    class core
-    oneshot
-
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
     class main
     disabled
