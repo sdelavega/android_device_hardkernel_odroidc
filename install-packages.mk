@@ -46,6 +46,7 @@ $(PRODUCT_OUT)/update.zip: $(PRODUCT_OUT)/.update-orig.zip
 	echo "recovery" >>$(RECOVERY_MESSAGE_FILE)
 	echo "--locale=en_US" >> $(RECOVERY_MESSAGE_FILE)
 	echo "--selfinstall" >> $(RECOVERY_MESSAGE_FILE)
+	echo "--show_text" >> $(RECOVERY_MESSAGE_FILE)
 	echo "--update_package=CACHE:update.zip" >> $(RECOVERY_MESSAGE_FILE)
 
 .PHONY: update.zip
