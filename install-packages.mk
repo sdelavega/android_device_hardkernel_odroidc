@@ -29,6 +29,7 @@ $(PRODUCT_OUT)/.update-orig.zip: userdataimage cacheimage rootsystem recoveryima
 	cp -a $(PRODUCT_OUT)/rootsystem.img $(UPDATE_PACKAGE_PATH)
 	cp -a $(INSTALLED_USERDATAIMAGE_TARGET) $(UPDATE_PACKAGE_PATH)
 	cp -a $(INSTALLED_CACHEIMAGE_TARGET) $(UPDATE_PACKAGE_PATH)
+	cp -a $(TARGET_PRODUCT_DIR)/recovery/system $(UPDATE_PACKAGE_PATH)
 	cp -a $(PRODUCT_OUT)/system/bin/updater \
 		$(UPDATE_PACKAGE_PATH)/META-INF/com/google/android/update-binary
 	cp -a $(TARGET_PRODUCT_DIR)/recovery/updater-script \

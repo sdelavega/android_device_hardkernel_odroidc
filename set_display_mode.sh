@@ -15,9 +15,14 @@ for x in $(cat /proc/cmdline); do
 done
 
 for x in top left right bottom; do
-        v=$(fw_printenv -n overscan_$x)
-        [ "$v" == "" ] && v=0
-        export $x=$v
+        v=$(cat /proc/cmdline)
+        for y in ${v}; do
+                case ${y} in
+                        overscan_$x=*) value=${y#*=};
+                esac
+                [ "$value" == "" ] && value=0
+                export $x=$value
+        done
 done
 
 setprop hdmimode $mode
