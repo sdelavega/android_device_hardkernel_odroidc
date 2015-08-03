@@ -193,7 +193,8 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 
 PRODUCT_PACKAGES += \
-        Utility \
+	OdroidUpdater \
+	Utility \
 	remotecfg \
 	Discovery.apk \
 	libasound \
