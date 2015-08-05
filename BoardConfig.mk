@@ -96,3 +96,4 @@ BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
 include device/hardkernel/common/sepolicy.mk
 include device/hardkernel/odroidc/rootsystem.mk
 include device/hardkernel/odroidc/install-packages.mk
+include device/hardkernel/odroidc/updatepackage.mk
