@@ -44,6 +44,7 @@ $(PRODUCT_OUT)/update.zip: $(PRODUCT_OUT)/.update-orig.zip
 	java -jar $(SIGNJAR) $(KEY_PEM) $(KEY_PK8) $< $@
 	dd if=/dev/zero of=$(RECOVERY_MESSAGE_FILE) bs=4 count=16	# 64 Bytes
 	echo "recovery" >>$(RECOVERY_MESSAGE_FILE)
+	echo "--locale=en_US" >> $(RECOVERY_MESSAGE_FILE)
 	echo "--selfinstall" >> $(RECOVERY_MESSAGE_FILE)
 	echo "--update_package=CACHE:update.zip" >> $(RECOVERY_MESSAGE_FILE)
 
