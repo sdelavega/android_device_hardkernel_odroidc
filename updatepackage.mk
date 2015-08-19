@@ -1,6 +1,4 @@
 SIGNJAR:=prebuilts/sdk/tools/lib/signapk.jar
-KEY_PEM:=bootable/recovery/testdata/testkey.x509.pem
-KEY_PK8:=bootable/recovery/testdata/testkey.pk8
 
 #
 # updatepackage-$(TARGET_DEVICE).zip
@@ -27,7 +25,9 @@ $(PRODUCT_OUT)/updatepackage.zip: $(PRODUCT_OUT)/kernel rootsystem
 
 $(PRODUCT_OUT)/updatepackage-$(TARGET_DEVICE)-signed.zip: \
 	$(PRODUCT_OUT)/updatepackage.zip
-	java -jar $(SIGNJAR) -w $(KEY_PEM) $(KEY_PK8) $< $@
+	java -jar $(SIGNJAR) -w \
+		$(DEFAULT_KEY_CERT_PAIR).x509.pem \
+		$(DEFAULT_KEY_CERT_PAIR).pk8 $< $@
 
 .PHONY: updatepackage
 updatepackage: $(PRODUCT_OUT)/updatepackage-$(TARGET_DEVICE)-signed.zip

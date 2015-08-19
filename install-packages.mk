@@ -1,6 +1,4 @@
 SIGNJAR:=prebuilts/sdk/tools/lib/signapk.jar
-KEY_PEM:=bootable/recovery/testdata/testkey.x509.pem
-KEY_PK8:=bootable/recovery/testdata/testkey.pk8
 
 #
 # Bootloader
@@ -41,7 +39,9 @@ $(PRODUCT_OUT)/.update-orig.zip: userdataimage cacheimage rootsystem recoveryima
 RECOVERY_MESSAGE_FILE := $(PRODUCT_OUT)/.recovery.message.txt
 
 $(PRODUCT_OUT)/update.zip: $(PRODUCT_OUT)/.update-orig.zip
-	java -jar $(SIGNJAR) $(KEY_PEM) $(KEY_PK8) $< $@
+	java -jar $(SIGNJAR) -w \
+		$(DEFAULT_KEY_CERT_PAIR).x509.pem \
+		$(DEFAULT_KEY_CERT_PAIR).pk8 $< $@
 	dd if=/dev/zero of=$(RECOVERY_MESSAGE_FILE) bs=4 count=16	# 64 Bytes
 	echo "recovery" >>$(RECOVERY_MESSAGE_FILE)
 	echo "--locale=en_US" >> $(RECOVERY_MESSAGE_FILE)
