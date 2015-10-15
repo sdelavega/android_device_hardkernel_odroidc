@@ -371,6 +371,14 @@ service multitouch /system/bin/insmod /system/lib/modules/hid-multitouch.ko
     user root
     group root
     disabled
+    oneshot
+
+service dwav_mt /system/bin/insmod /system/lib/modules/dwav-usb-mt.ko
+    class core
+    user root
+    group root
+    disabled
+    oneshot
 
 service reset_density /system/bin/sh /system/bin/wm density reset
     class core
@@ -389,6 +397,9 @@ on property:dev.bootcomplete=1
 
 on property:dev.bootcomplete=1
     start multitouch
+
+on property:init.svc.multitouch=stopped
+    start dwav_mt
 
 on property:dev.bootcomplete=1
     start reset_density
