@@ -97,14 +97,11 @@ PRODUCT_PACKAGES += \
 #
 #########################################################################
 
-#BOARD_HAVE_BLUETOOTH := true
-#BLUETOOTH_MODULE := AP6335
-#include device/hardkernel/common/bluetooth.mk
-
-#PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
-
-#PRODUCT_PACKAGES += libbt-vendor
+BOARD_HAVE_BLUETOOTH := true
+BLUETOOTH_HCI_USE_USB := true
+BOARD_HAVE_BLUETOOTH_BCM := true
+BOARD_BLUETOOTH_DOES_NOT_USE_RFKILL := true
+include device/hardkernel/common/bluetooth.mk
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml

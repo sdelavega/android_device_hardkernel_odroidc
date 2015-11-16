@@ -62,5 +62,4 @@ BOARD_USES_ALSA_AUDIO := true
 
 TARGET_RELEASETOOLS_EXTENSIONS := device/hardkernel/common
 
-BOARD_HAVE_BLUETOOTH_BCM := true
 include device/hardkernel/common/sepolicy.mk
