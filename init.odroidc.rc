@@ -366,12 +366,6 @@ service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw
 service fuse_usbstorage /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbstorage /storage/usbstorage
     class late_start
 
-service multitouch /system/bin/insmod /system/lib/modules/hid-multitouch.ko
-    class core
-    user root
-    group root
-    disabled
-
 service reset_density /system/bin/sh /system/bin/wm density reset
     class core
     user root
@@ -386,9 +380,6 @@ on property:hw.nophone=false
 
 on property:dev.bootcomplete=1
     start usbpm
-
-on property:dev.bootcomplete=1
-    start multitouch
 
 on property:dev.bootcomplete=1
     start reset_density
