@@ -21,15 +21,18 @@ on init
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /storage/sdcard1 0700 root root
 
-    mkdir /mnt/media_rw/usbstorage 0700 media_rw media_rw
-    mkdir /storage/usbstorage 0700 root root
+    mkdir /mnt/media_rw/udisk0 0700 media_rw media_rw
+    mkdir /storage/udisk0 0700 root root
+
+    mkdir /mnt/media_rw/udisk1 0700 media_rw media_rw
+    mkdir /storage/udisk1 0700 root root
 
     mkdir /mnt/media_rw/otg 0700 media_rw media_rw
     mkdir /storage/otg 0700 root root
 
 
     export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbstorage:/storage/otg
+    export SECONDARY_STORAGE /storage/sdcard1:/storage/udisk0:/storage/udisk1/storage/otg
 
     # Support legacy paths
     symlink /storage/sdcard0 /sdcard
@@ -37,8 +40,10 @@ on init
     symlink /storage/sdcard1 /extSdCard
     symlink /storage/sdcard1 /mnt/extSdCard
     symlink /storage/sdcard1 /external_sd
-    symlink /storage/usbstorage /usbstorage
-    symlink /storage/usbstorage /mnt/usbstorage
+    symlink /storage/udisk0 /udisk0
+    symlink /storage/udisk0 /mnt/udisk0
+    symlink /storage/udisk1 /udisk1
+    symlink /storage/udisk1 /mnt/udisk1
     symlink /storage/otg /otg
     symlink /storage/ott /mnt/otg
 
@@ -369,8 +374,12 @@ service fuse_sdcard0 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw
 service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start
 
-service fuse_usbstorage /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbstorage /storage/usbstorage
+service fuse_udisk0 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/udisk0 /storage/udisk0
     class late_start
+
+service fuse_udisk1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/udisk1 /storage/udisk1
+    class late_start
+
 
 service fuse_otg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/otg /storage/otg
     class late_start
