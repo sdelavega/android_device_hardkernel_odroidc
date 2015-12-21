@@ -9,6 +9,7 @@
 /dev/block/mmcblk0p4    /cache  ext4    noatime,nosuid,nodev,                wait
 
 /devices/lm1/usb1                           auto    auto    defaults    voldmanaged=usbstorage:auto
+/devices/lm0/usb2                           auto    auto    defaults    voldmanaged=otg:auto
 
 # When booted by eMMC
 /devices/platform/aml_sdhc.0/mmc_host/emmc  auto    auto    defaults    voldmanaged=sdcard0:1,noemulatedsd

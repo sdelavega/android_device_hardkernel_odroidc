@@ -24,8 +24,12 @@ on init
     mkdir /mnt/media_rw/usbstorage 0700 media_rw media_rw
     mkdir /storage/usbstorage 0700 root root
 
+    mkdir /mnt/media_rw/otg 0700 media_rw media_rw
+    mkdir /storage/otg 0700 root root
+
+
     export EXTERNAL_STORAGE /storage/sdcard0
-    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbstorage
+    export SECONDARY_STORAGE /storage/sdcard1:/storage/usbstorage:/storage/otg
 
     # Support legacy paths
     symlink /storage/sdcard0 /sdcard
@@ -35,6 +39,8 @@ on init
     symlink /storage/sdcard1 /external_sd
     symlink /storage/usbstorage /usbstorage
     symlink /storage/usbstorage /mnt/usbstorage
+    symlink /storage/otg /otg
+    symlink /storage/ott /mnt/otg
 
     mount tmpfs tmpfs /storage/external_storage rec mode=0775,uid=1000,gid=1023
 
@@ -365,6 +371,10 @@ service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw
 
 service fuse_usbstorage /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/usbstorage /storage/usbstorage
     class late_start
+
+service fuse_otg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/otg /storage/otg
+    class late_start
+
 
 service reset_density /system/bin/sh /system/bin/wm density reset
     class core
