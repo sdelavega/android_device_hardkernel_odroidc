@@ -122,6 +122,10 @@ PRODUCT_PACKAGES += \
     bluetooth.default \
     Bluetooth
 
+# odroid sensor
+PRODUCT_PACKAGES += \
+    sensors.odroidc
+
 PRODUCT_COPY_FILES += \
     device/hardkernel/common/tools/AmlHostsTool:system/bin/AmlHostsTool
 

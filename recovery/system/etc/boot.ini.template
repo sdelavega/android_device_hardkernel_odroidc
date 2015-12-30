@@ -48,7 +48,10 @@ setenv right "0"
 # CEC Configuration
 setenv cecconfig "cecf"
 
+# Disable IR remote
+setenv ir_remote "1"
+
 # Booting
-setenv bootargs "root=/dev/mmcblk0p2 rw console=ttyS0,115200n8 no_console_suspend vdaccfg=${vdac_config} logo=osd1,loaded,${fb_addr},${outputmode},full hdmimode=${hdmimode} cvbsmode=${cvbsmode} hdmitx=${cecconfig} vout=${vout_mode} ${disableuhs} overscan_top=${top} overscan_left=${left} overscan_bottom=${bottom} overscan_right=${right} androidboot.serialno=${fbt_id#}"
+setenv bootargs "root=/dev/mmcblk0p2 rw console=ttyS0,115200n8 no_console_suspend vdaccfg=${vdac_config} logo=osd1,loaded,${fb_addr},${outputmode},full hdmimode=${hdmimode} cvbsmode=${cvbsmode} hdmitx=${cecconfig} vout=${vout_mode} ${disableuhs} overscan_top=${top} overscan_left=${left} overscan_bottom=${bottom} overscan_right=${right} androidboot.serialno=${fbt_id#} ir_remote=${ir_remote}"
 setenv bootcmd "movi read boot 0 0x12000000; movi read dtb 0 0x12800000; bootm 0x12000000 - 0x12800000"
 run bootcmd
