@@ -389,6 +389,7 @@ service reset_density /system/bin/sh /system/bin/wm density reset
     class core
     user root
     group root
+    oneshot
     disabled
 
 on property:hw.nophone=true
