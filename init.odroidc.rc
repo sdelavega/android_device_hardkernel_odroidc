@@ -292,6 +292,8 @@ on boot
     insmod /system/lib/modules/cfg80211.ko
     insmod /system/lib/modules/mac80211.ko
 
+    write /proc/sys/kernel/ctrl-alt-del 0
+
 #start sdcard
 
 service dhcpcd_wlan0 /system/bin/dhcpcd -ABKL
