@@ -98,3 +98,6 @@ include device/hardkernel/common/sepolicy.mk
 include device/hardkernel/odroidc/rootsystem.mk
 include device/hardkernel/odroidc/install-packages.mk
 include device/hardkernel/odroidc/updatepackage.mk
+
+# USB Audio
+BOARD_USE_USB_AUDIO:=true
