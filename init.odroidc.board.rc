@@ -122,3 +122,9 @@ service preinstall /system/bin/preinstall.sh
     user root
     group root
     oneshot
+
+service auto_density /system/bin/set_density.sh
+    class main
+    user root
+    group root
+    oneshot
