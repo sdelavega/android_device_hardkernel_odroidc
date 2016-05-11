@@ -135,3 +135,9 @@ service ups /system/bin/ups3.sh
     group root
     disabled
     oneshot
+
+service makebootini /system/bin/makebootini.sh
+    class core
+    user root
+    group root
+    oneshot
