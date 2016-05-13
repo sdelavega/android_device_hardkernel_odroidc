@@ -3,10 +3,10 @@
 while true
 do
     sleep 1
-    if [ -e "/sdcard/boot.ini" ]
+    if [ -f "/storage/sdcard0/boot.ini" ]
     then
         break
     else
-        cp /system/etc/boot.ini.template /sdcard/boot.ini
+        cp /system/etc/boot.ini.template /storage/sdcard0/boot.ini
     fi
 done
