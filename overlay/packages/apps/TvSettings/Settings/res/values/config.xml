@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<resources>
+    <string name="display_filter_outputmode">4k2k24hz,4k2k25hz,4k2k30hz,4k2ksmpte</string>
+</resources>
