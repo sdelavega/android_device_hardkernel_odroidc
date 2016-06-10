@@ -1,28 +1,12 @@
 #if use prebuilt kernel or build kernel from source code
 -include device/hardkernel/common/gpu.mk
-USE_PREBUILT_KERNEL := false
-
 
 INSTALLED_KERNEL_TARGET := $(PRODUCT_OUT)/kernel
 
-ifeq ($(USE_PREBUILT_KERNEL),true)
-TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
+KERNEL_DEVICETREE := meson8b_odroidc
+KERNEL_DEFCONFIG := odroidc_defconfig
 
-$(INSTALLED_KERNEL_TARGET): $(TARGET_PREBUILT_KERNEL) | $(ACP)
-	@echo "Kernel installed"
-	$(transform-prebuilt-to-target)
-	@echo "cp kernel modules"
-
-else
-KERNEL_DEVICETREE := meson8b_m200_1G
-
-ifeq ($(TARGET_USE_SECUREOS),true)
-KERNEL_DEFCONFIG := meson8b_tee_defconfig
-else
-KERNEL_DEFCONFIG := meson8b_defconfig
-endif
-
-KERNEL_ROOTDIR :=  common
+KERNEL_ROOTDIR := kernel
 KERNEL_OUT := $(TARGET_OUT_INTERMEDIATES)/KERNEL_OBJ
 KERNEL_CONFIG := $(KERNEL_OUT)/.config
 INTERMEDIATES_KERNEL := $(KERNEL_OUT)/arch/arm/boot/uImage
@@ -80,8 +64,6 @@ savekernelconfig: $(KERNEL_OUT) $(KERNEL_CONFIG)
 $(INSTALLED_KERNEL_TARGET): $(INTERMEDIATES_KERNEL) | $(ACP)
 	@echo "Kernel installed"
 	$(transform-prebuilt-to-target)
-
-endif
 
 $(PRODUCT_OUT)/ramdisk.img: $(INSTALLED_KERNEL_TARGET)
 $(PRODUCT_OUT)/system.img: $(INSTALLED_KERNEL_TARGET)
