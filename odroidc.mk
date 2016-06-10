@@ -51,23 +51,44 @@ else
 PRODUCT_COPY_FILES += \
     device/hardkernel/odroidc/fstab.odroidc:root/fstab.odroidc
 endif
+
+
 #########################################################################
 #
 #                                                WiFi
 #
 #########################################################################
+WIFI_DRIVER                 := rtl8192cu
+BOARD_WIFI_VENDOR           := realtek
+BOARD_WLAN_DEVICE           := rtl8192cu
+WIFI_DRIVER_MODULE_NAME     := rtl8192cu
+WIFI_DRIVER_MODULE_PATH     := /system/lib/modules/8192cu.ko
 
-WIFI_MODULE := AP6335
-include device/hardkernel/common/wifi.mk
+WPA_SUPPLICANT_VERSION           := VER_0_8_X
+BOARD_WPA_SUPPLICANT_DRIVER      := NL80211
+BOARD_WPA_SUPPLICANT_PRIVATE_LIB := lib_driver_cmd_nl80211
+
+WIFI_DRIVER_MODULE_ARG    := ""
+WIFI_FIRMWARE_LOADER      := ""
+WIFI_DRIVER_FW_PATH_STA   := ""
+WIFI_DRIVER_FW_PATH_AP    := ""
+WIFI_DRIVER_FW_PATH_P2P   := ""
+WIFI_DRIVER_FW_PATH_PARAM := ""
+
+PRODUCT_PROPERTY_OVERRIDES += \
+        wifi.interface=wlan0 \
 
 # Change this to match target country
 # 11 North America; 14 Japan; 13 rest of world
-PRODUCT_DEFAULT_WIFI_CHANNELS := 11
+PRODUCT_DEFAULT_WIFI_CHANNELS := 13
 
-ifeq ($(WIFI_MODULE), AP6335)
 PRODUCT_COPY_FILES += \
-        $(LOCAL_PATH)/wifi/config.txt:system/etc/wifi/config.txt
-endif
+        frameworks/native/data/etc/android.hardware.wifi.xml:system/etc/permissions/android.hardware.wifi.xml \
+
+PRODUCT_PACKAGES += \
+        wpa_supplicant.conf \
+        wpa_supplicant_overlay.conf \
+        p2p_supplicant_overlay.conf
 
 
 #########################################################################
