@@ -25,7 +25,7 @@ ODROIDC-UBOOT-CONFIG
 #    "1600x900p60hz"  | 1600x900
 #    "1680x1050p60hz" | 1680x1050
 #    "1920x1200"      | 1920x1200
-setenv hdmimode "720p"
+setenv hdmimode "1080p"
 
 # HDMI/DVI Mode Configuration
 # This will enforce the singal type of display
