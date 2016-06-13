@@ -386,20 +386,6 @@ service fuse_udisk1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/
 service fuse_otg /system/bin/sdcard -u 1023 -g 1023 -w 1023 -d /mnt/media_rw/otg /storage/otg
     class late_start
 
-service multitouch /system/bin/insmod /system/lib/modules/hid-multitouch.ko
-    class core
-    user root
-    group root
-    disabled
-    oneshot
-
-service dwav_mt /system/bin/insmod /system/lib/modules/dwav-usb-mt.ko
-    class core
-    user root
-    group root
-    disabled
-    oneshot
-
 on property:hw.nophone=true
   stop ril-daemon
 
@@ -408,12 +394,6 @@ on property:hw.nophone=false
 
 on property:dev.bootcomplete=1
     start usbpm
-
-on property:dev.bootcomplete=1
-    start multitouch
-
-on property:init.svc.multitouch=stopped
-    start dwav_mt
 
 service imageserver /system/bin/imageserver
     class main
