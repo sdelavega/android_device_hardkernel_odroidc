@@ -81,7 +81,7 @@ $(PRODUCT_OUT)/selfinstall-$(TARGET_DEVICE).bin: \
 	dd if=$(PRODUCT_OUT)/meson8b_odroidc.dtb of=$@ bs=512 seek=1088
 	dd if=$(PRODUCT_OUT)/kernel of=$@ bs=512 seek=1216
 	dd if=$(INSTALLED_RECOVERYIMAGE_TARGET) of=$@ bs=512 seek=17600
-	dd if=$(PRODUCT_OUT)/hardkernel-1080.bmp of=$@ bs=512 seek=33984
+	dd if=$(PRODUCT_OUT)/hardkernel-720.bmp of=$@ bs=512 seek=33984
 	dd if=$(PRODUCT_OUT)/installpackage.img of=$@ bs=512 seek=49152
 	sync
 	@echo "Done."
