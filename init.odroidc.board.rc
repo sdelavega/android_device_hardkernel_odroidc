@@ -1,4 +1,4 @@
-import init.amlogic.usb.rc
+import init.odroidc.usb.rc
 
 on early-init
     loglevel 7

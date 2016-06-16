@@ -1,5 +1,5 @@
 # Set display related config
-ro.platform.has.mbxuimode=true
+#ro.platform.has.#mbxuimode=true
 ro.platform.has.realoutputmode=true
 
 #camera max to 720p

@@ -30,7 +30,7 @@ $(PRODUCT_OUT)/rootsystem: droidcore
 	ln -sf /bin/init $(PRODUCT_OUT)/rootsystem/init
 	ln -sf /bin/healthd $(PRODUCT_OUT)/rootsystem/sbin/healthd
 	ln -sf /bin/adbd $(PRODUCT_OUT)/rootsystem/sbin/adbd
-	sed -i "s,^ro.secure=*,ro.secure=0,g" $(PRODUCT_OUT)/rootsystem/default.prop
+#	sed -i "s,^ro.secure=*,ro.secure=0,g" $(PRODUCT_OUT)/rootsystem/default.prop
 #	mkdir -p $(PRODUCT_OUT)/rootsystem/cache
 #	mkdir -p $(PRODUCT_OUT)/rootsystem/mnt/shell/emulated
 

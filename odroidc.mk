@@ -22,6 +22,8 @@
 $(call inherit-product, device/hardkernel/common/products/mbox/product_mbox.mk)
 $(call inherit-product, device/hardkernel/odroidc/device.mk)
 
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core.mk)
+
 # odroidc:
 
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
@@ -188,9 +190,17 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.platform.has.pppoe=true
 endif
 
+# U-Boot Env Tools
+PRODUCT_PACKAGES += \
+    fw_printenv \
+    fw_setenv
+
 #################################################################################
 #
 #                                                DEFAULT LOWMEMORYKILLER CONFIG
 #
 #################################################################################
 BUILD_WITH_LOWMEM_COMMON_CONFIG := true
+
+WITH_DEXPREOPT := true
+WITH_DEXPREOPT_PIC := true

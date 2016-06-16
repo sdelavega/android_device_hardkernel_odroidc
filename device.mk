@@ -15,17 +15,18 @@
 #
 
 PRODUCT_COPY_FILES += \
-    device/hardkernel/common/products/mbox/init.amlogic.rc:root/init.amlogic.rc \
+    device/hardkernel/odroidc/init.odroidc.rc:root/init.odroidc.rc \
     device/hardkernel/odroidc/init.odroidc.board.rc:root/init.odroidc.board.rc \
     device/hardkernel/odroidc/init.odroidc.usb.rc:root/init.odroidc.usb.rc \
-    device/hardkernel/common/products/mbox/ueventd.amlogic.rc:root/ueventd.amlogic.rc
+    device/hardkernel/odroidc/ueventd.odroidc.rc:root/ueventd.odroidc.rc
 
 PRODUCT_COPY_FILES += \
     device/hardkernel/odroidc/files/media_profiles.xml:system/etc/media_profiles.xml \
     device/hardkernel/odroidc/files/audio_policy.conf:system/etc/audio_policy.conf \
     device/hardkernel/odroidc/files/media_codecs.xml:system/etc/media_codecs.xml \
     device/hardkernel/odroidc/files/mixer_paths.xml:system/etc/mixer_paths.xml \
-    device/hardkernel/odroidc/files/mesondisplay.cfg:system/etc/mesondisplay.cfg
+    device/hardkernel/odroidc/files/mesondisplay.cfg:system/etc/mesondisplay.cfg \
+    device/hardkernel/odroidc/files/boot.ini.template:system/etc/boot.ini.template
 
 # remote IME config file
 PRODUCT_COPY_FILES += \
@@ -35,7 +36,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_AAPT_CONFIG := xlarge hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
-PRODUCT_CHARACTERISTICS := mbx,nosdcard
+PRODUCT_CHARACTERISTICS := tablet
 
 DEVICE_PACKAGE_OVERLAYS := \
     device/hardkernel/odroidc/overlay
