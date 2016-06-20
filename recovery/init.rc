@@ -7,7 +7,7 @@ on init
     sysclktz 0
     loglevel 7
 
-    export PATH /sbin:/system/sbin:/system/bin:/system/xbin
+    export PATH /sbin:/system/sbin:/system/bin:/system/xbin:/bin
     export LD_LIBRARY_PATH /system/lib
     export ANDROID_BOOTLOGO 1
     export ANDROID_ROOT /system
