@@ -22,7 +22,7 @@ mkdir -p $(PRODUCT_OUT)/root/boot
 mkdir -p $(PRODUCT_OUT)/upgrade
 mkdir -p $(TARGET_OUT)/lib
 
-cp $(WIFI_OUT)/broadcom/drivers/ap6xxx/broadcm_40181/dhd.ko $(TARGET_OUT)/lib/
+#cp $(WIFI_OUT)/broadcom/drivers/ap6xxx/broadcm_40181/dhd.ko $(TARGET_OUT)/lib/
 cp $(KERNEL_OUT)/arch/arm/boot/dts/$(KERNEL_DEVICETREE).dtb $(PRODUCT_OUT)/upgrade/meson.dtb
 #cp $(KERNEL_OUT)/../hardware/amlogic/pmu/aml_pmu_dev.ko $(TARGET_OUT)/lib/
 #cp $(KERNEL_OUT)/../hardware/amlogic/nand/amlnf/aml_nftl_dev.ko $(PRODUCT_OUT)/root/boot/

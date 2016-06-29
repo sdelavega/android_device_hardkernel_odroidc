@@ -99,14 +99,14 @@ PRODUCT_PACKAGES += \
 #
 #########################################################################
 
-BOARD_HAVE_BLUETOOTH := true
-BLUETOOTH_MODULE := AP6335
-include device/hardkernel/common/bluetooth.mk
+#BOARD_HAVE_BLUETOOTH := true
+#BLUETOOTH_MODULE := AP6335
+#include device/hardkernel/common/bluetooth.mk
 
-PRODUCT_COPY_FILES += \
+#PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/bluetooth/bt_vendor.conf:system/etc/bluetooth/bt_vendor.conf
 
-PRODUCT_PACKAGES += libbt-vendor
+#PRODUCT_PACKAGES += libbt-vendor
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.ethernet.xml:system/etc/permissions/android.hardware.ethernet.xml
