@@ -33,7 +33,6 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/odroidc/files/remote.conf:system/etc/remote.conf \
     device/hardkernel/odroidc/files/Vendor_0001_Product_0001.kl:/system/usr/keylayout/Vendor_0001_Product_0001.kl
 
-PRODUCT_AAPT_CONFIG := xlarge hdpi xhdpi
 PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 PRODUCT_CHARACTERISTICS := tablet
