@@ -1,5 +1,4 @@
 # Set display related config
-#ro.platform.has.#mbxuimode=true
 ro.platform.has.realoutputmode=true
 
 #camera max to 720p
@@ -50,78 +49,16 @@ media.libplayer.curlenable=true
 media.libplayer.modules=vhls_mod,dash_mod,curl_mod,prhls_mod,vm_mod
 
 
+# GPS
+# support BAUD rate 4800, 9600
+ro.kernel.android.gps=/dev/ttyACM0
+ro.kernel.android.gps.speed=9600
+#ro.kernel.android.gps.speed=4800
 
-######## UBOOTENV VARIBLES - r/w as system properties ##########
-#
-#  Now we can load ubootenv varibles to system properties. 
-#  We use a special prefix ("ubootenv.var" as default) to indicate that the 'property'
-#  actually is an ubootenv varible. 
-#  
-#  A ubootenv 'property' will be initialized during system booting. And when user set
-#  a different value, it will be written back to ubootenv device immediately.
-#
+#hdmi rotation
+persist.demo.hdmirotation=landscape
 
-## prefix of ubootenv varibles - should less than 16 chars.
-#UBOOTENV MTD NAME
-#ubootenv.var.bootcmd=
-#ubootenv.var.cpuclock=
-#ubootenv.var.gpuclock=
-#ubootenv.var.memsize=
-#ubootenv.var.ethaddr=
-#ubootenv.var.ipaddr=
-#ubootenv.var.gatewayip=
-ubootenv.var.outputmode=
-#ubootenv.var.screenratio=
-#ubootenv.var.oobeflag=
-ubootenv.var.480p_x=
-ubootenv.var.480p_y=
-ubootenv.var.480p_w=
-ubootenv.var.480p_h=
-ubootenv.var.480i_x=
-ubootenv.var.480i_y=
-ubootenv.var.480i_w=
-ubootenv.var.480i_h=
-ubootenv.var.576p_x=
-ubootenv.var.576p_y=
-ubootenv.var.576p_w=
-ubootenv.var.576p_h=
-ubootenv.var.576i_x=
-ubootenv.var.576i_y=
-ubootenv.var.576i_w=
-ubootenv.var.576i_h=
-ubootenv.var.720p_x=
-ubootenv.var.720p_y=
-ubootenv.var.720p_w=
-ubootenv.var.720p_h=
-ubootenv.var.1080p_x=
-ubootenv.var.1080p_y=
-ubootenv.var.1080p_w=
-ubootenv.var.1080p_h=
-ubootenv.var.1080i_x=
-ubootenv.var.1080i_y=
-ubootenv.var.1080i_w=
-ubootenv.var.1080i_h=
-ubootenv.var.4k2k24hz_x=
-ubootenv.var.4k2k24hz_y=
-ubootenv.var.4k2k24hz_w=
-ubootenv.var.4k2k24hz_h=
-ubootenv.var.4k2k25hz_x=
-ubootenv.var.4k2k25hz_y=
-ubootenv.var.4k2k25hz_w=
-ubootenv.var.4k2k25hz_h=
-ubootenv.var.4k2k30hz_x=
-ubootenv.var.4k2k30hz_y=
-ubootenv.var.4k2k30hz_w=
-ubootenv.var.4k2k30hz_h=
-ubootenv.var.4k2ksmpte_x=
-ubootenv.var.4k2ksmpte_y=
-ubootenv.var.4k2ksmpte_w=
-ubootenv.var.4k2ksmpte_h=
-ubootenv.var.digitaudiooutput=
-ubootenv.var.defaulttvfrequency=
-ubootenv.var.has.accelerometer=
-ubootenv.var.cecconfig=
-ubootenv.var.cvbsmode=
-ubootenv.var.hdmimode=
-ubootenv.var.is.bestmode=
-ubootenv.var.disp.fromleft=
+#set to 0 temporarily so touch works without other changes
+ro.sf,hwrotation=0
+
+ro.sf.lcd_density=160

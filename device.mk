@@ -21,19 +21,27 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/odroidc/ueventd.odroidc.rc:root/ueventd.odroidc.rc
 
 PRODUCT_COPY_FILES += \
+    device/hardkernel/odroidc/recovery/init.recovery.odroidc.rc:root/init.recovery.odroidc.rc
+
+PRODUCT_COPY_FILES += \
     device/hardkernel/odroidc/files/media_profiles.xml:system/etc/media_profiles.xml \
     device/hardkernel/odroidc/files/audio_policy.conf:system/etc/audio_policy.conf \
     device/hardkernel/odroidc/files/media_codecs.xml:system/etc/media_codecs.xml \
     device/hardkernel/odroidc/files/mixer_paths.xml:system/etc/mixer_paths.xml \
     device/hardkernel/odroidc/files/mesondisplay.cfg:system/etc/mesondisplay.cfg \
-    device/hardkernel/odroidc/files/boot.ini.template:system/etc/boot.ini.template
+    device/hardkernel/odroidc/files/boot.ini.template:system/etc/boot.ini.template \
+    device/hardkernel/odroidc/files/preinstall.sh:system/bin/preinstall.sh \
+    device/hardkernel/odroidc/files/makebootini.sh:system/bin/makebootini.sh \
+    device/hardkernel/odroidc/files/set_density.sh:system/bin/set_density.sh \
+    device/hardkernel/odroidc/files/set_density2.sh:system/bin/set_density2.sh \
+    device/hardkernel/odroidc/files/usb_reset.sh:system/bin/usb_reset.sh \
+    device/hardkernel/odroidc/files/ups3.sh:system/bin/ups3.sh \
+    device/hardkernel/odroidc/files/hardkernel-720.bmp.gz:system/etc/hardkernel-720.bmp.gz
 
 # remote IME config file
 PRODUCT_COPY_FILES += \
     device/hardkernel/odroidc/files/remote.conf:system/etc/remote.conf \
     device/hardkernel/odroidc/files/Vendor_0001_Product_0001.kl:/system/usr/keylayout/Vendor_0001_Product_0001.kl
-
-PRODUCT_AAPT_PREF_CONFIG := xhdpi
 
 PRODUCT_CHARACTERISTICS := tablet
 
@@ -49,4 +57,3 @@ $(call inherit-product, frameworks/native/build/tablet-10in-xhdpi-2048-dalvik-he
 # set default USB configuration
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
     persist.sys.usb.config=mtp
-

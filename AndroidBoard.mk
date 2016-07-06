@@ -17,4 +17,4 @@ LOCAL_PATH := $(call my-dir)
 include $(LOCAL_PATH)/Kernel.mk
 include device/hardkernel/odroidc/rootsystem.mk
 include device/hardkernel/odroidc/selfinstall.mk
-#include device/hardkernel/common/factory.mk
+include device/hardkernel/odroidc/updatepackage.mk
