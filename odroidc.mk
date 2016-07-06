@@ -22,8 +22,6 @@
 $(call inherit-product, device/hardkernel/common/products/mbox/product_mbox.mk)
 $(call inherit-product, device/hardkernel/odroidc/device.mk)
 
-$(call inherit-product, $(SRC_TARGET_DIR)/product/core.mk)
-
 # odroidc:
 
 NUM_FRAMEBUFFER_SURFACE_BUFFERS := 3
