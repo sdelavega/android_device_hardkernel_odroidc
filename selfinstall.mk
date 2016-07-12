@@ -26,7 +26,7 @@ SELFINSTALL_CACHE_IMAGE := $(SELFINSTALL_DIR)/cache.ext4
 # Bootloader
 #
 bootable/uboot/build/u-boot-orig.bin:
-	make -C bootable/uboot ARCH=$(TARGET_ARCH) $(TARGET_PRODUCT)_config
+	make -C bootable/uboot ARCH=$(TARGET_ARCH) $(TARGET_PRODUCT)_rev2_config
 	make -C bootable/uboot ARCH=$(TARGET_ARCH)
 
 .PHONY: $(PRODUCT_OUT)/bl1.bin.hardkernel
@@ -98,12 +98,14 @@ $(PRODUCT_OUT)/selfinstall-$(TARGET_DEVICE).bin: \
 	dd if=$(PRODUCT_OUT)/bl1.bin.hardkernel of=$@ bs=1 count=442
 	dd if=$(PRODUCT_OUT)/bl1.bin.hardkernel of=$@ bs=512 skip=1 seek=1
 	dd if=$(PRODUCT_OUT)/u-boot.bin of=$@ bs=512 seek=64
-	dd if=$(RECOVERY_MESSAGE_FILE) of=$@ bs=512 seek=1016
-	dd if=$(PRODUCT_OUT)/meson8b_odroidc.dtb of=$@ bs=512 seek=1088
-	dd if=$(PRODUCT_OUT)/kernel of=$@ bs=512 seek=1216
-	dd if=$(INSTALLED_RECOVERYIMAGE_TARGET) of=$@ bs=512 seek=17600
-	dd if=$(PRODUCT_OUT)/hardkernel-720.bmp of=$@ bs=512 seek=33984
-	dd if=$(PRODUCT_OUT)/installpackage.img of=$@ bs=512 seek=49152
+	dd if=$(BOOTLOADER_MESSAGE) of=$@ bs=512 seek=1432
+	dd if=$(PRODUCT_OUT)/meson8b_odroidc.dtb of=$@ bs=512 seek=1504
+	dd if=$(PRODUCT_OUT)/kernel of=$@ bs=512 seek=1632
+	dd if=$(INSTALLED_RECOVERYIMAGE_TARGET) of=$@ bs=512 seek=34400
+	dd if=device/hardkernel/$(TARGET_PRODUCT)/files/hardkernel-720.bmp.gz of=$@ \
+		bs=512 seek=58976
+	dd if=$(SELFINSTALL_CACHE_IMAGE) of=$@ bs=512 seek=65536
+	sync
 	@echo "Done."
 
 .PHONY: selfinstall

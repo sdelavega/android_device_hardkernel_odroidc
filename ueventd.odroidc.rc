@@ -74,8 +74,15 @@
 #consumerir
 /dev/irblaster1           0660   system     system
 
+# GPS
+/dev/ttyACM*   0666    gps             gps
+/dev/ttyUSB*   0666    gps             gps
+
 # for bluetooth nodes
 /dev/uhid                 0660    bluetooth bluetooth
 
 # bluetooth device
 /dev/bus/usb/001/*        0660    bluetooth bluetooth
+
+# i2c userland driver
+/dev/i2c-*                0666    system    system

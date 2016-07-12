@@ -8,12 +8,14 @@ on init
     # See storage config details at http://source.android.com/tech/storage/
     mkdir /mnt/shell/emulated 0700 shell shell
     mkdir /storage/emulated 0555 root root
+    mkdir /storage/internal 0700 root root
     mkdir /storage/sdcard1 0700 root root
     mkdir /storage/udisk0 0700 root root
     mkdir /storage/udisk1 0700 root root
     mkdir /storage/sr0 0700 root root
     mkdir /storage/loop 0700 root root
 
+    mkdir /mnt/media_rw/internal 0700 media_rw media_rw
     mkdir /mnt/media_rw/sdcard1 0700 media_rw media_rw
     mkdir /mnt/media_rw/udisk0 0700 media_rw media_rw
     mkdir /mnt/media_rw/udisk1 0700 media_rw media_rw
@@ -23,19 +25,20 @@ on init
     export EXTERNAL_STORAGE /storage/emulated/legacy
     export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
     export EMULATED_STORAGE_TARGET /storage/emulated
-    export SECONDARY_STORAGE /storage/sdcard1
+    export SECONDARY_STORAGE /storage/internal:/storage/sdcard1
 
     # Support legacy paths
     symlink /storage/emulated/legacy /sdcard
     symlink /storage/emulated/legacy /mnt/sdcard
     symlink /storage/emulated/legacy /storage/sdcard0
+    symlink /mnt/shell/emulated/0 /storage/emulated/0
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
     mkdir /storage/external_storage 0555 root root
+    symlink /storage/internal /storage/external_storage/internal
     symlink /storage/sdcard1 /storage/external_storage/sdcard1
     symlink /storage/udisk0 /storage/external_storage/udisk0
     symlink /storage/sr0 /storage/external_storage/sr0
 
-    mkdir /factory
     chown system wifi /dev/wifi_power
     chmod 0660 /dev/wifi_power
 
@@ -270,9 +273,9 @@ on boot
 
     chmod 664 /sys/class/thermal/thermal_zone0/mode
     chmod 664 /sys/class/thermal/thermal_zone1/mode
-    chmod 664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
-    chmod 664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
-    chmod 664 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
+    chmod 666 /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq
+    chmod 666 /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq
+    chmod 666 /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor
     chmod 664 /sys/devices/system/cpu/cpufreq/conservative/freq_step
     chmod 664 /sys/devices/system/cpu/cpufreq/performance2/sampling_rate
     chmod 664 /sys/devices/system/cpu/cpufreq/performance2/down_threshold
@@ -318,6 +321,8 @@ on boot
     write /sys/class/vfm/map "rm default"
     write /sys/class/vfm/map "add default decoder ppmgr deinterlace amvideo"
 
+    write /proc/sys/kernel/ctrl-alt-del 0
+
 on fs
     mount_all /fstab.odroidc
     setprop ro.crypto.fuse_sdcard true
@@ -340,6 +345,10 @@ service system_control /system/bin/systemcontrol
 # virtual sdcard daemon running as media_rw (1023)
 service sdcard /system/bin/sdcard -u 1023 -g 1023 -t 4 -l /data/media /mnt/shell/emulated
     class late_start
+
+service fuse_internal /system/bin/sdcard -u 1023 -g 1023 -w 1023 -t 4 -d /mnt/media_rw/internal /storage/internal
+    class late_start
+    disabled
 
 service fuse_sdcard1 /system/bin/sdcard -u 1023 -g 1023 -w 1023 -t 4 -d /mnt/media_rw/sdcard1 /storage/sdcard1
     class late_start
@@ -366,8 +375,6 @@ service watchdogd /sbin/watchdogd 10 20
     class core
     disabled
     seclabel u:r:watchdogd:s0
-
-
 
 service dhcpcd_eth0 /system/bin/dhcpcd -ABKLG
     class main
