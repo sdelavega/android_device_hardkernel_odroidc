@@ -229,7 +229,7 @@ PRODUCT_PACKAGES += \
     gps.odroidc
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/files/hardkernel-720.bmp:$(PRODUCT_OUT)/hardkernel-720.bmp
+	$(LOCAL_PATH)/files/hardkernel-720.bmp.gz:$(PRODUCT_OUT)/hardkernel-720.bmp.gz
 
 # U-Boot Env Tools
 PRODUCT_PACKAGES += \
