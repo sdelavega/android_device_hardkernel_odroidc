@@ -2,12 +2,12 @@
 
 show_progress(1.0000, 0);
 
-ui_print("\n\nHardkernel's ODROID-C2 Android Update is started...");
+ui_print("\n\nHardkernel's ODROID-C Android Update is started...");
 set_progress(0.1000);
 
 ui_print("   Linux kernel image is flashing...");
-package_extract_file("Image", "/tmp/Image");
-run_program("/bin/dd", "if=/tmp/Image", "of=/dev/block/mmcblk0", "seek=1632");
+package_extract_file("Image", "/tmp/uImage");
+run_program("/bin/dd", "if=/tmp/uImage", "of=/dev/block/mmcblk0", "seek=1632");
 
 set_progress(0.2000);
 
@@ -19,7 +19,7 @@ set_progress(0.3000);
 
 ui_print("   U-boot is flashing...");
 package_extract_file("u-boot.bin", "/tmp/u-boot.bin");
-run_program("/bin/dd", "if=/tmp/u-boot.bin", "of=/dev/block/mmcblk0", "seek=97");
+run_program("/bin/dd", "if=/tmp/u-boot.bin", "of=/dev/block/mmcblk0", "seek=64");
 
 set_progress(0.4000);
 
