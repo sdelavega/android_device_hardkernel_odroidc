@@ -15,6 +15,7 @@ INTERMEDIATES_KERNEL := $(KERNEL_OUT)/arch/arm/boot/uImage
 BOARD_MKBOOTIMG_ARGS := --second $(KERNEL_OUT)/arch/arm/boot/dts/$(KERNEL_DEVICETREE).dtb
 TARGET_AMLOGIC_INT_KERNEL := $(KERNEL_OUT)/arch/arm/boot/uImage
 TARGET_AMLOGIC_INT_RECOVERY_KERNEL := $(KERNEL_OUT)/arch/arm/boot/uImage_recovery
+MALI_OUT := $(TARGET_OUT_INTERMEDIATES)/hardware/arm/gpu/mali
 BACKPORTS_PATH := hardware/backports
 
 PREFIX_CROSS_COMPILE=arm-linux-gnueabihf-
