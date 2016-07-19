@@ -40,7 +40,7 @@
 #define DEVICE1_ENVSECTORS     2
 #else
 #define DEVICE1_NAME      "/dev/block/mmcblk0"
-#define DEVICE1_OFFSET    0x80000
+#define DEVICE1_OFFSET    0xB4000
 #define ENV1_SIZE         0x8000
 #define DEVICE1_ESIZE     0x200
 #define DEVICE1_ENVSECTORS     64
