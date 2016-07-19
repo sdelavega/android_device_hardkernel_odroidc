@@ -26,6 +26,9 @@ SELFINSTALL_CACHE_IMAGE := $(SELFINSTALL_DIR)/cache.ext4
 # Bootloader
 #
 bootable/uboot/build/u-boot-orig.bin:
+	rm -rf bootable/uboot/sd_fusing/bl1.bin.hardkernel
+	rm -rf bootable/uboot/sd_fusing/u-boot.bin
+	make -C bootable/uboot ARCH=$(TARGET_ARCH) clean
 	make -C bootable/uboot ARCH=$(TARGET_ARCH) $(TARGET_PRODUCT)_rev2_config
 	make -C bootable/uboot ARCH=$(TARGET_ARCH)
 
