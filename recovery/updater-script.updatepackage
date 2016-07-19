@@ -41,5 +41,5 @@ unmount("/system");
 
 set_progress(0.9000);
 
-ui_print("Android update is completed.\nHave fun with ODROID-C2!\n\n");
+ui_print("Android update is completed.\nHave fun with ODROID-C!\n\n");
 set_progress(1.0000);

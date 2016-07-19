@@ -2,7 +2,7 @@
 
 show_progress(1.0000, 0);
 
-ui_print("\n\nHardkernel's ODROID-C2 Android Update is started...");
+ui_print("\n\nHardkernel's ODROID-C Android Update is started...");
 set_progress(0.1000);
 
 ui_print("   'system' partition is flashing...");
