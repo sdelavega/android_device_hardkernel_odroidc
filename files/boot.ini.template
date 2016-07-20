@@ -48,9 +48,6 @@ setenv right "0"
 # This might break boot for some brand/models of cards.
 #setenv disableuhs "disableuhs"
 
-# CEC Configuration
-setenv cecconfig "cecf"
-
 # Disable IR remote
 setenv ir_remote "1"
 
