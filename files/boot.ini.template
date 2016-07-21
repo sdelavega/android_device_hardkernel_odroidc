@@ -38,10 +38,11 @@ setenv disablehpd "false"
 
 # Overscan offset configuration
 # All offsets are zero and can be tuned by manual or ODROID Utility
-setenv top "0"
-setenv left "0"
-setenv bottom "0"
-setenv right "0"
+setenv overscan_top "0"
+setenv overscan_left "0"
+setenv overscan_bottom "0"
+setenv overscan_right "0"
+suspend_hdmiphy=0
 
 # UHS Card Configuration
 # Uncomment the line below to __DISABLE__ UHS-1 MicroSD support
@@ -54,7 +55,7 @@ setenv ir_remote "1"
 setenv selinuxopt "androidboot.selinux=disabled"
 
 # Booting
-setenv bootargs "root=/dev/mmcblk0p2 rw console=ttyS0,115200n8 no_console_suspend vdaccfg=${vdac_config} logo=osd1,loaded,${fb_addr},${outputmode},full hdmimode=${hdmimode} cvbsmode=${cvbsmode} hdmitx=${cecconfig} vout=${vout_mode} disablehpd=${disablehpd} ${disableuhs} overscan_top=${top} overscan_left=${left} overscan_bottom=${bottom} overscan_right=${right} androidboot.serialno=${fbt_id#} ir_remote=${ir_remote} usbcore.autosuspend=-1 ${selinuxopt}"
+setenv bootargs "root=/dev/mmcblk0p2 rw console=ttyS0,115200n8 no_console_suspend vdaccfg=${vdac_config} logo=osd1,loaded,${fb_addr},${outputmode},full hdmimode=${hdmimode} cvbsmode=${cvbsmode} hdmitx=${cecconfig} vout=${vout_mode} disablehpd=${disablehpd} ${disableuhs} androidboot.serialno=${fbt_id#} ir_remote=${ir_remote} usbcore.autosuspend=-1 ${selinuxopt} suspend_hdmiphy=${suspend_hdmiphy}"
 
 save
 
