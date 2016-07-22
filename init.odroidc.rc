@@ -57,6 +57,17 @@ on init
     chmod 666 /sys/class/tsync/vpause_flag
     chmod 0666 /dev/amstream_sub_read
 
+    chmod 666 /sys/class/tv/policy_fr_auto
+    chmod 666 /sys/class/tv/policy_fr_auto_switch
+    chmod 666 /sys/class/video/brightness
+    chmod 666 /sys/class/video/contrast
+    chmod 666 /sys/class/display/mode
+    chmod 666 /sys/class/display/axis
+    chmod 666 /dev/amvideo
+    chmod 666 /dev/amstream*
+    chmod 666 /sys/class/audiodsp/digital_raw
+    chmod 666 /sys/class/ppmgr/ppmgr_vframe_states
+
     # for zram
     mkdir /swap_zram0 0700 root root
 
