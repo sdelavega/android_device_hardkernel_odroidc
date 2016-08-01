@@ -62,3 +62,5 @@ persist.demo.hdmirotation=landscape
 ro.sf,hwrotation=0
 
 ro.sf.lcd_density=160
+
+config.override_forced_orient=false
