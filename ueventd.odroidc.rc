@@ -75,3 +75,5 @@
 
 # bluetooth device
 /dev/bus/usb/001/*      0660    bluetooth bluetooth
+
+/dev/gpiomem             0666   system     system
