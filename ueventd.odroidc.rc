@@ -86,3 +86,5 @@
 
 # i2c userland driver
 /dev/i2c-*                0666    system    system
+
+/dev/gpiomem             0666   system     system
