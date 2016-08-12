@@ -13,7 +13,7 @@ $(PRODUCT_OUT)/updatepackage.zip: $(PRODUCT_OUT)/kernel rootsystem recovery
 	cp -a $(PRODUCT_OUT)/obj/KERNEL_OBJ/arch/arm/boot/uImage $(PKGDIR)
 	cp -a $(PRODUCT_OUT)/meson8b_odroidc.dtb $(PKGDIR)
 	cp -a $(PRODUCT_OUT)/u-boot.bin $(PKGDIR)
-	cp -a $(PRODUCT_OUT)/rootsystem.img $(PKGDIR)
+	cp -a $(PRODUCT_OUT)/rootsystem $(PKGDIR)
 	cp -a $(PRODUCT_OUT)/recovery.img $(PKGDIR)
 	mkdir $(PKGDIR)/system/etc -p
 	cp -a $(PRODUCT_OUT)/system/etc/boot.ini.template $(PKGDIR)/system/etc/
