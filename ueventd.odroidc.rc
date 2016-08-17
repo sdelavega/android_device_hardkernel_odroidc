@@ -88,3 +88,5 @@
 /dev/i2c-*                0666    system    system
 
 /dev/gpiomem             0666   system     system
+/dev/mem                 0666   system     system
+/dev/spidev0.0           0666   system     system
