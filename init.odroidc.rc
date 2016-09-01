@@ -249,6 +249,9 @@ on boot
     chown system system /sys/class/amhdmitx/amhdmitx0/cec_lang_config
     chown system system /sys/class/amhdmitx/amhdmitx0/config
 
+    chmod 666 /sys/class/graphics/fb1/scale_axis
+    chmod 666 /sys/class/graphics/fb1/scale
+
     chown media  system /sys/class/vfm/map
 
     # Free scale
