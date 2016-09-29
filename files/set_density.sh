@@ -23,7 +23,7 @@ do
 			if [ "$SIZE" == "" ]; then
 				SIZE="Error type 2"
 			fi
-			sleep 1
+			sleep 0.2
 			get_orientation
 		;;
 		Physical*)
