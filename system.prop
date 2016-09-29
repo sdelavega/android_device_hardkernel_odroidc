@@ -58,6 +58,9 @@ ro.kernel.android.gps.speed=9600
 #hdmi rotation
 persist.demo.hdmirotation=landscape
 
+#Bluetooth Audio A2dp Sink
+persist.service.bt.a2dp.sink=false
+
 #set to 0 temporarily so touch works without other changes
 ro.sf,hwrotation=0
 
