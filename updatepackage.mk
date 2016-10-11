@@ -13,7 +13,7 @@ $(PRODUCT_OUT)/updatepackage.zip: $(PRODUCT_OUT)/kernel rootsystem recovery
 	cp -a $(PRODUCT_OUT)/kernel $(PKGDIR)
 	cp -a $(PRODUCT_OUT)/meson8b_odroidc.dtb $(PKGDIR)
 	cp -a $(PRODUCT_OUT)/u-boot.bin $(PKGDIR)
-	cp -a $(PRODUCT_OUT)/rootsystem.img $(PKGDIR)
+	cp -a $(PRODUCT_OUT)/rootsystem $(PKGDIR)
 	cp -a $(PRODUCT_OUT)/recovery.img $(PKGDIR)
 	cp -a $(TARGET_PRODUCT_DIR)/recovery/system $(PKGDIR)
 	cp -a $(PRODUCT_OUT)/system/bin/updater \
