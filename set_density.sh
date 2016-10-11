@@ -12,7 +12,7 @@ do
 			if [ "$SIZE" == "" ]; then
 				SIZE="Error type 2"
 			fi
-			sleep 1
+			sleep 0.2
 		;;
 		Physical*)
 			if [ "$SIZE" == "Physical size: 800x480" ]; then
