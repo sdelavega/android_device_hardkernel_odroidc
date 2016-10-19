@@ -10,30 +10,23 @@ write_sparse_image("rootsystem.img", "system", "/dev/block/mmcblk0p2");
 
 set_progress(0.4000);
 
-ui_print("   'userdata' partition is flashing...");
-write_sparse_image("userdata.img", "userdata", "/dev/block/mmcblk0p3");
+ui_print("   formatting /dev/block/mmcblk0p4 for ext4 partition");
+run_program("/bin/mk_e2fs", "-F", "-t", "ext4", "/dev/block/mmcblk0p4");
 
 set_progress(0.5000);
 
-ui_print("   FAT partition is now formatting...");
-#package_extract_file("cache.img", "cache", "/dev/block/mmcblk0p4");
-format("vfat", "EMMC", "/dev/block/mmcblk0p1", 0, "/sdcard");
+ui_print("   formatting /dev/block/mmcblk0p1 for VFAT partition");
+run_program("/bin/mkfs.vfat", "-n", "VFAT", "/dev/block/mmcblk0p1");
 
-set_progress(0.7000);
-
-ui_print("   boot.ini.template is copying to /system/etc/");
-mount("ext4", "EMMC", "/dev/block/mmcblk0p2", "/system");
-package_extract_file("system/etc/boot.ini.template", "/system/etc/boot.ini.template");
-unmount("/system");
-
-set_progress(0.8000);
+set_progress(0.9000);
 
 ui_print("   boot.ini is copying to FAT partition");
 mount("vfat", "EMMC", "/dev/block/mmcblk0p1", "/sdcard");
-package_extract_file("system/etc/boot.ini.template", "/sdcard/boot.ini");
+mount("ext4", "EMMC", "/dev/block/mmcblk0p2", "/system");
+run_program("/bin/cp", "/system/etc/boot.ini.template", "/sdcard/boot.ini");
+run_program("/bin/cp", "/system/etc/hardkernel-720.bmp.gz", "/sdcard/boot-logo.bmp.gz");
+unmount("/system");
 unmount("/sdcard");
-
-set_progress(0.9000);
 
 ui_print("Self installation is completed.\nHave fun with ODROID-C!\n\n");
 set_progress(1.0000);

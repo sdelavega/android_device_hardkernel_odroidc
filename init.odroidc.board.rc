@@ -10,11 +10,6 @@ on aml-firstboot-init
 
     #format data and cache patrition if not exist
 
-on fs
-    mount_all /fstab.odroidc
-    setprop ro.crypto.umount_sd false
-    write /sys/class/aml_keys/aml_keys/version auto3
-
 on post-fs-data
 
 on boot

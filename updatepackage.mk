@@ -15,7 +15,6 @@ $(PRODUCT_OUT)/updatepackage.zip: $(PRODUCT_OUT)/kernel rootsystem recovery
 	cp -a $(PRODUCT_OUT)/u-boot.bin $(PKGDIR)
 	cp -a $(PRODUCT_OUT)/rootsystem $(PKGDIR)
 	cp -a $(PRODUCT_OUT)/recovery.img $(PKGDIR)
-	cp -a $(TARGET_PRODUCT_DIR)/recovery/system $(PKGDIR)
 	cp -a $(PRODUCT_OUT)/system/bin/updater \
 		$(PKGDIR)/META-INF/com/google/android/update-binary
 	cp -a $(TARGET_PRODUCT_DIR)/recovery/updater-script.updatepackage \

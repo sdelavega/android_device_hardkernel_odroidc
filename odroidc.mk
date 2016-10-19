@@ -239,7 +239,7 @@ PRODUCT_COPY_FILES += \
 	$(LOCAL_PATH)/config:system/etc/config
 
 PRODUCT_COPY_FILES += \
-	$(LOCAL_PATH)/res_pack/hardkernel-720.bmp:$(PRODUCT_OUT)/hardkernel-720.bmp
+	$(LOCAL_PATH)/res_pack/hardkernel-720.bmp.gz:$(PRODUCT_OUT)/hardkernel-720.bmp.gz
 
 # U-boot Env Tools
 PRODUCT_PACKAGES += \

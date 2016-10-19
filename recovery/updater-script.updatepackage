@@ -7,13 +7,13 @@ set_progress(0.1000);
 
 ui_print("   Linux kernel image is flashing...");
 package_extract_file("kernel", "/tmp/kernel");
-run_program("/sbin/dd", "if=/tmp/kernel", "of=/dev/block/mmcblk0", "seek=1216");
+run_program("/sbin/dd", "if=/tmp/kernel", "of=/dev/block/mmcblk0", "seek=1632");
 
 set_progress(0.2000);
 
 ui_print("   Device tree blob is flashing...");
 package_extract_file("meson8b_odroidc.dtb", "/tmp/meson8b_odroidc.dtb");
-run_program("/sbin/dd", "if=/tmp/meson8b_odroidc.dtb", "of=/dev/block/mmcblk0", "seek=1088");
+run_program("/sbin/dd", "if=/tmp/meson8b_odroidc.dtb", "of=/dev/block/mmcblk0", "seek=1504");
 
 set_progress(0.3000);
 
@@ -25,7 +25,7 @@ set_progress(0.4000);
 
 ui_print("   'recovery' partition is flashing...");
 package_extract_file("recovery.img", "/tmp/recovery.img");
-run_program("/sbin/dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0", "seek=17600");
+run_program("/sbin/dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0", "seek=34400");
 
 set_progress(0.5000);
 

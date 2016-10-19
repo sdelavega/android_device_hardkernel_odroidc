@@ -1,7 +1,7 @@
 #!/bin/sh
-if [ -f "/storage/sdcard0/boot.ini" ]
+if [ -f "/storage/internal/boot.ini" ]
 then
     break
 else
-    cp /system/etc/boot.ini.template /storage/sdcard0/boot.ini
+    cp /system/etc/boot.ini.template /storage/internal/boot.ini
 fi
