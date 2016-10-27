@@ -138,6 +138,13 @@ service makebootini /system/bin/makebootini.sh
     disabled
     oneshot
 
+service rotation /system/bin/rotation.sh
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+
 on property:dev.bootcomplete=1
     start makebootini
 

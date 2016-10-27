@@ -158,6 +158,7 @@ PRODUCT_COPY_FILES += \
 	$(TARGET_PRODUCT_DIR)/ups3.sh:system/bin/ups3.sh \
 	$(TARGET_PRODUCT_DIR)/makebootini.sh:system/bin/makebootini.sh \
 	$(TARGET_PRODUCT_DIR)/usb_reset.sh:system/bin/usb_reset.sh \
+	$(TARGET_PRODUCT_DIR)/rotation.sh:system/bin/rotation.sh \
 	$(TARGET_PRODUCT_DIR)/boot.ini.template:system/etc/boot.ini.template \
 	$(TARGET_PRODUCT_DIR)/res_pack/hardkernel-720.bmp.gz:system/etc/hardkernel-720.bmp.gz
 
