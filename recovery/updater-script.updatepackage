@@ -37,6 +37,8 @@ set_progress(0.8000);
 
 ui_print("   boot.ini.template is copying to /system/etc/");
 package_extract_file("system/etc/boot.ini.template", "/system/etc/boot.ini.template");
+ui_print("   removed old Utility");
+run_program("/bin/rm", "-rf", "/system/app/Utility");
 unmount("/system");
 
 set_progress(0.9000);
