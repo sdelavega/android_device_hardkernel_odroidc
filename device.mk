@@ -32,8 +32,6 @@ PRODUCT_COPY_FILES += \
     device/hardkernel/odroidc/files/boot.ini.template:system/etc/boot.ini.template \
     device/hardkernel/odroidc/files/preinstall.sh:system/bin/preinstall.sh \
     device/hardkernel/odroidc/files/makebootini.sh:system/bin/makebootini.sh \
-    device/hardkernel/odroidc/files/set_density.sh:system/bin/set_density.sh \
-    device/hardkernel/odroidc/files/set_density2.sh:system/bin/set_density2.sh \
     device/hardkernel/odroidc/files/usb_reset.sh:system/bin/usb_reset.sh \
     device/hardkernel/odroidc/files/ups3.sh:system/bin/ups3.sh \
     device/hardkernel/odroidc/files/hardkernel-720.bmp.gz:system/etc/hardkernel-720.bmp.gz
