@@ -118,12 +118,6 @@ service preinstall /system/bin/preinstall.sh
     group root
     oneshot
 
-service auto_density /system/bin/set_density.sh
-    class main
-    user root
-    group root
-    oneshot
-
 service ups /system/bin/ups3.sh
     class core
     user root
