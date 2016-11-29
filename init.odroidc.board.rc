@@ -71,6 +71,13 @@ service usb_reset /system/bin/usb_reset.sh
     disabled
     oneshot
 
+service rotation /system/bin/rotation.sh
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+
 on property:dev.bootcomplete=1
     start usb_reset
     start makebootini
