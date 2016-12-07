@@ -62,8 +62,11 @@ setenv selinuxopt "androidboot.selinux=disabled"
 # setenv max_freq "1824"
 setenv max_freq "1536"
 
+# Disable Vu7
+setenv disable_vu7 "false"
+
 # Booting
-setenv bootargs "root=/dev/mmcblk0p2 rw console=ttyS0,115200n8 no_console_suspend vdaccfg=${vdac_config} logo=osd1,loaded,${fb_addr},${outputmode},full hdmimode=${hdmimode} cvbsmode=${cvbsmode} hdmitx=${cecconfig} vout=${vout_mode} disablehpd=${disablehpd} ${disableuhs} androidboot.serialno=${fbt_id#} ir_remote=${ir_remote} usbcore.autosuspend=-1 ${selinuxopt} suspend_hdmiphy=${suspend_hdmiphy} max_freq=${max_freq}"
+setenv bootargs "root=/dev/mmcblk0p2 rw console=ttyS0,115200n8 no_console_suspend vdaccfg=${vdac_config} logo=osd1,loaded,${fb_addr},${outputmode},full hdmimode=${hdmimode} cvbsmode=${cvbsmode} hdmitx=${cecconfig} vout=${vout_mode} disablehpd=${disablehpd} ${disableuhs} androidboot.serialno=${fbt_id#} ir_remote=${ir_remote} usbcore.autosuspend=-1 ${selinuxopt} suspend_hdmiphy=${suspend_hdmiphy} max_freq=${max_freq} disable_vu7=${disable_vu7}"
 
 save
 
