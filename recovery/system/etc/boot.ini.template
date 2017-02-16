@@ -33,6 +33,9 @@ setenv hdmimode "720p"
 # "dvi"  - For DVI interface
 setenv vout_mode "hdmi"
 
+# HPD enable/disable option
+setenv disablehpd "false"
+
 # Overscan offset configuration
 # All offsets are zero and can be tuned by manual or ODROID Utility
 setenv top "0"
@@ -50,8 +53,9 @@ setenv cecconfig "cecf"
 
 # Disable IR remote
 setenv ir_remote "1"
+suspend_hdmiphy=0
 
 # Booting
-setenv bootargs "root=/dev/mmcblk0p2 rw console=ttyS0,115200n8 no_console_suspend vdaccfg=${vdac_config} logo=osd1,loaded,${fb_addr},${outputmode},full hdmimode=${hdmimode} cvbsmode=${cvbsmode} hdmitx=${cecconfig} vout=${vout_mode} ${disableuhs} overscan_top=${top} overscan_left=${left} overscan_bottom=${bottom} overscan_right=${right} androidboot.serialno=${fbt_id#} ir_remote=${ir_remote}"
+setenv bootargs "root=/dev/mmcblk0p2 rw console=ttyS0,115200n8 no_console_suspend vdaccfg=${vdac_config} logo=osd1,loaded,${fb_addr},${outputmode},full hdmimode=${hdmimode} cvbsmode=${cvbsmode} hdmitx=${cecconfig} vout=${vout_mode} disablehpd=${disablehpd} ${disableuhs} overscan_top=${top} overscan_left=${left} overscan_bottom=${bottom} overscan_right=${right} androidboot.serialno=${fbt_id#} ir_remote=${ir_remote} usbcore.autosuspend=-1 suspend_hdmiphy=${suspend_hdmiphy}"
 setenv bootcmd "movi read boot 0 0x12000000; movi read dtb 0 0x12800000; bootm 0x12000000 - 0x12800000"
 run bootcmd

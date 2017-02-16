@@ -122,3 +122,36 @@ service preinstall /system/bin/preinstall.sh
     user root
     group root
     oneshot
+
+service auto_density /system/bin/set_density.sh
+    class main
+    user root
+    group root
+    oneshot
+
+service ups /system/bin/ups3.sh
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+
+service makebootini /system/bin/makebootini.sh
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:dev.bootcomplete=1
+    start makebootini
+
+service usb_reset /system/bin/usb_reset.sh
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+
+on property:dev.bootcomplete=1
+    start usb_reset

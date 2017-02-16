@@ -153,7 +153,11 @@ PRODUCT_COPY_FILES += \
 #copy set_display_mode.sh
 PRODUCT_COPY_FILES += \
 	$(TARGET_PRODUCT_DIR)/set_display_mode.sh:system/bin/set_display_mode.sh  \
-	$(TARGET_PRODUCT_DIR)/preinstall.sh:system/bin/preinstall.sh
+	$(TARGET_PRODUCT_DIR)/preinstall.sh:system/bin/preinstall.sh \
+	$(TARGET_PRODUCT_DIR)/set_density.sh:system/bin/set_density.sh \
+	$(TARGET_PRODUCT_DIR)/ups3.sh:system/bin/ups3.sh \
+	$(TARGET_PRODUCT_DIR)/makebootini.sh:system/bin/makebootini.sh \
+	$(TARGET_PRODUCT_DIR)/usb_reset.sh:system/bin/usb_reset.sh
 
 #copy zram_mount.sh
 PRODUCT_COPY_FILES += \

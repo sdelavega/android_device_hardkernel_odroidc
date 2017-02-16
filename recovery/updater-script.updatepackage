@@ -23,13 +23,19 @@ run_program("/sbin/dd", "if=/tmp/u-boot.bin", "of=/dev/block/mmcblk0", "seek=64"
 
 set_progress(0.4000);
 
-ui_print("   'system' partition is flashing...");
-write_sparse_image("rootsystem.img", "system", "/dev/block/mmcblk0p2");
+ui_print("   'recovery' partition is flashing...");
+package_extract_file("recovery.img", "/tmp/recovery.img");
+run_program("/sbin/dd", "if=/tmp/recovery.img", "of=/dev/block/mmcblk0", "seek=17600");
+
+set_progress(0.5000);
+
+ui_print("   'system' partition is extracting...");
+mount("ext4", "EMMC", "/dev/block/mmcblk0p2", "/system");
+package_extract_dir("rootsystem", "/system");
 
 set_progress(0.8000);
 
 ui_print("   boot.ini.template is copying to /system/etc/");
-mount("ext4", "EMMC", "/dev/block/mmcblk0p2", "/system");
 package_extract_file("system/etc/boot.ini.template", "/system/etc/boot.ini.template");
 unmount("/system");
 
