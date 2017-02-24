@@ -5,16 +5,16 @@
 
 
 /dev/block/mmcblk0p2    /system ext4    ro                                   wait
-/dev/block/mmcblk0p3    /data   ext4    noatime,nosuid,nodev,noauto_da_alloc wait,encryptable=/cache/metadata
-/dev/block/mmcblk0p4    /cache  ext4    noatime,nosuid,nodev,                wait
+/dev/block/mmcblk0p4    /data   ext4    noatime,nosuid,nodev                 wait,check,encryptable=/dev/block/misc
+/dev/block/mmcblk0p3    /cache  ext4    noatime,nosuid,nodev                 wait,check
 
-/devices/lm1/usb1                           auto    auto    defaults    voldmanaged=udisk0:auto
-/devices/lm1/usb1                           auto    auto    defaults    voldmanaged=udisk1:auto
-/devices/lm0/usb2                           auto    auto    defaults    voldmanaged=otg:auto
+/devices/lm1/usb1               auto    auto defaults   voldmanaged=udisk0:auto
+/devices/lm1/usb1               auto    auto defaults   voldmanaged=udisk1:auto
+/devices/lm0/usb2               auto    auto defaults   voldmanaged=otg:auto
 
 # When booted by eMMC
-/devices/platform/aml_sdhc.0/mmc_host/emmc  auto    auto    defaults    voldmanaged=sdcard0:1,noemulatedsd
+/devices/platform/aml_sdhc.0/mmc_host/emmc  auto    auto    defaults    voldmanaged=internal:1,noemulatedsd
 /devices/platform/aml_sdio.0/mmc_host/sd    auto    auto    defaults    voldmanaged=sdcard1:auto
 # When booted by SD card
-/devices/platform/aml_sdhc.0/mmc_host/sd    auto    auto    defaults    voldmanaged=sdcard0:1,noemulatedsd
+/devices/platform/aml_sdhc.0/mmc_host/sd    auto    auto    defaults    voldmanaged=internal:1,noemulatedsd
 /devices/platform/aml_sdio.0/mmc_host/emmc  auto    auto    defaults    voldmanaged=sdcard1:auto

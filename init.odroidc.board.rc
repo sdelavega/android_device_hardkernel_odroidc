@@ -10,17 +10,9 @@ on aml-firstboot-init
 
     #format data and cache patrition if not exist
 
-on fs
-    mount_all /fstab.odroidc
-    setprop ro.crypto.umount_sd false
-    write /sys/class/aml_keys/aml_keys/version auto3
-
 on post-fs-data
 
 on boot
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_max_freq 1488000
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_min_freq 96000
-    write /sys/devices/system/cpu/cpu0/cpufreq/scaling_governor hotplug
     write /sys/class/freq_limit/limit 0
 #write /sys/devices/system/cpu/cpufreq/interactive/hispeed_freq 816000
     #write /sys/devices/system/cpu/cpufreq/ondemand/freq_step 8
@@ -123,12 +115,6 @@ service preinstall /system/bin/preinstall.sh
     group root
     oneshot
 
-service auto_density /system/bin/set_density.sh
-    class main
-    user root
-    group root
-    oneshot
-
 service ups /system/bin/ups3.sh
     class core
     user root
@@ -137,6 +123,13 @@ service ups /system/bin/ups3.sh
     oneshot
 
 service makebootini /system/bin/makebootini.sh
+    class core
+    user root
+    group root
+    disabled
+    oneshot
+
+service rotation /system/bin/rotation.sh
     class core
     user root
     group root
